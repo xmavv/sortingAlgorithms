@@ -2,6 +2,13 @@
 #include "iostream"
 #include "time.h"
 #include "cstdlib"
+#include "../Headers/Menu.h"
+#include "../Headers/Algorithm.h"
+#include "../Headers/Heapsort.h"
+#include "../Headers/Insertionsort.h"
+#include "../Headers/Quicksort.h"
+#include "../Headers/Shellsort.h"
+
 using namespace std;
 int ile;
 clock_t start, stop;
@@ -84,17 +91,9 @@ float avg(float *array, int ile){
 }
 
 int main() {
-    float tablica[3];
 
-    tablica[0] = 1.5;
-    tablica[1] = 2.3;
-    tablica[2] = 0.75;
-
-    cout<<"srednia"<<avg(tablica, 3);
-
-    cout<<tablica[0]<<endl;
-    cout<<tablica[1]<<endl;
-    cout<<tablica[2]<<endl;
+    Menu menu;
+    menu.start();
 
     return 0;
 }
