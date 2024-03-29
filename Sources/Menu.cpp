@@ -1,4 +1,5 @@
 #include "../Headers/Menu.h"
+#include "../Headers/Print.h"
 #include "stdio.h"
 #include "iostream"
 #include "time.h"
@@ -40,7 +41,7 @@ void Menu::generateRandomArray(int len){
         pointer++;
     }
 
-    this ->showArray(arrayToSort, arrayLength);
+    Print::printArray(arrayToSort, len, "twoja tablica");
 }
 
 void Menu::loadArrayFromFile(string name) {
@@ -66,19 +67,7 @@ void Menu::loadArrayFromFile(string name) {
         pointer++;
     }
 
-    this ->showArray(arrayToSort, arrayLength);
-}
-
-void Menu::showArray(int *p, int len) {
-    cout<<"twoja tablica: [";
-
-    for (int i = 0; i < len; ++i) {
-        i == len-1 ? cout<<*p : cout<<*p<<", ";
-        p++;
-    }
-    cout<<"]"<<endl;
-
-    system("pause");
+    Print::printArray(arrayToSort, arrayLength, "twoja tablica");
 }
 
 void Menu::chooseAlgorithm() {
@@ -90,20 +79,20 @@ void Menu::chooseAlgorithm() {
     cin>>userChoice;
 
     if(userChoice == 1) {
-//        algorithm = &insertionsort;
-//        algorithm -> sort();
+        algorithm = &insertionsort;
+        algorithm -> sort(arrayToSort, arrayLength);
         cout<<"wybrales"<<userChoice<<"algorytm"<<endl;
     } else if (userChoice == 2) {
-//        algorithm = &quicksort;
-//        algorithm -> sort();
+        algorithm = &quicksort;
+        algorithm -> sort(arrayToSort, arrayLength);
         cout<<"wybrales"<<userChoice<<"algorytm"<<endl;
     } else if (userChoice == 3) {
-//        algorithm = &shellsort;
-//        algorithm -> sort();
+        algorithm = &shellsort;
+        algorithm -> sort(arrayToSort, arrayLength);
         cout<<"wybrales"<<userChoice<<"algorytm"<<endl;
     } else if (userChoice == 4) {
-//        algorithm = &heapsort;
-//        algorithm -> sort();
+        algorithm = &heapsort;
+        algorithm -> sort(arrayToSort, arrayLength);
         cout<<"wybrales"<<userChoice<<"algorytm"<<endl;
     } //validation
 }
