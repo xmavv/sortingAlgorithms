@@ -4,13 +4,13 @@
 #include "iostream"
 #include "time.h"
 #include "cstdlib"
+#include "Print.h"
 
 using namespace std;
 
 class Algorithm {
 public:
-    virtual void sort() = 0;
+    virtual int sort(int *arr, int len) = 0;
 };
-
 
 #endif //PROJEKT_SORTOWANIE_ALGORITHM_H

@@ -11,7 +11,7 @@ using namespace std;
 class Quicksort :public Algorithm {
 public:
     Quicksort();
-    virtual void sort();
+    virtual int sort(int *arr, int len);
 };
 
 

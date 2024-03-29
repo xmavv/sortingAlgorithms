@@ -5,3 +5,11 @@
 #include "cstdlib"
 
 using namespace std;
+
+Quicksort::Quicksort() {
+
+}
+
+int Quicksort::sort(int *arr, int len) {
+    return 0;
+}

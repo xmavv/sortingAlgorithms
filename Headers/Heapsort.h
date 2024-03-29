@@ -8,10 +8,10 @@
 
 using namespace std;
 
-class Heapsort :public Algorithm {
+class Heapsort :public Algorithm{
 public:
     Heapsort();
-    virtual void sort();
+    virtual int sort(int *arr, int len);
 };
 
 

@@ -8,10 +8,10 @@
 
 using namespace std;
 
-class Insertionsort :public Algorithm {
+class Insertionsort :public Algorithm{
 public:
     Insertionsort();
-    virtual void sort();
+    virtual int sort(int *arr, int len);
 };
 
 
