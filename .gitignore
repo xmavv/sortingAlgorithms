@@ -1,0 +1,9 @@
+bin
+obj
+PROJEKT_SORTOWANIE.cbp
+TESTING/Headers2
+TESTING/Sources2
+.idea/
+CMakeLists.txt
+PROJEKT_SORTOWANIE.layout
+cmake-build-debug
