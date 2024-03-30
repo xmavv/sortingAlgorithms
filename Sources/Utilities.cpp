@@ -1,4 +1,4 @@
-#include "../Headers/Print.h"
+#include "../Headers/Utilities.h"
 #include "stdio.h"
 #include "iostream"
 #include "time.h"
@@ -6,18 +6,26 @@
 
 using namespace std;
 
-Print::Print() {
+Utilities::Utilities() {
 
 }
 
-void Print::printArray(int *arr, int len, string mes){
+void Utilities::printArray(int *arr, int len, string mes){
     cout<<mes<<": [";
 
     for (int i = 0; i < len; ++i) {
         i == len-1 ? cout<<*arr : cout<<*arr<<", ";
         arr++;
     }
-    cout<<"]"<<endl;
+    cout<<"]"<<endl<<endl<<endl;
 
-    system("pause");
+    cout<<"nacisnij dowolny klawisz aby kontynuowac..."<<endl;
+    cin.ignore();
+    cin.get();
+}
+
+void Utilities::copyArray(int *arr,  int arrayCopy[], int len) {
+    for (int i = 0; i < len; ++i) {
+        arrayCopy[i] = arr[i];
+    }
 }
