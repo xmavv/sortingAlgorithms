@@ -8,10 +8,10 @@
 
 using namespace std;
 
-class Shellsort :public Algorithm {
+class Shellsort  {
 public:
     Shellsort();
-    virtual int sort(int *arr, int len);
+     int sort(int *arr, int len);
 };
 
 

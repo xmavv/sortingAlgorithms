@@ -27,7 +27,7 @@ void Menu::start() {
                 chooseAlgorithm();
                 break;
             case 2:
-                cout<<"podaj nazwe pliku (plik musi znajdowac sie w folderze /cmake-build-debug/!)"<<endl;
+                cout<<"podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!)"<<endl;
                 cin>>fileName;
                 loadArrayFromFile(fileName); //global arrayToSort variable changed, so we can work with it
                 chooseAlgorithm();
@@ -103,23 +103,19 @@ void Menu::chooseAlgorithm() {
         switch (userChoice) {
             case 1:
                 cout<<"wybrales 1 algorytm"<<endl;
-                algorithm = &insertionsort;
-                algorithm -> sort(arrayCopy, arrayLength);
+                insertionsort.sort(arrayCopy, arrayLength);
                 break;
             case 2:
                 cout<<"wybrales 2 algorytm"<<endl;
-                algorithm = &quicksort;
-                algorithm -> sort(arrayCopy, arrayLength);
+                quicksort.sort(arrayCopy, 0, arrayLength);
                 break;
             case 3:
                 cout<<"wybrales 3 algorytm"<<endl;
-                algorithm = &shellsort;
-                algorithm -> sort(arrayCopy, arrayLength);
+                shellsort.sort(arrayCopy, arrayLength);
                 break;
             case 4:
                 cout<<"wybrales 4 algorytm"<<endl;
-                algorithm = &heapsort;
-                algorithm -> sort(arrayCopy, arrayLength);
+                heapsort.sort(arrayCopy, arrayLength);
                 break;
             case 5:
                 Utilities::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");

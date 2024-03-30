@@ -28,7 +28,7 @@ class Menu {
     int userChoice;
     int *arrayToSort;
     int arrayLength;
-    Algorithm *algorithm;
+//    Algorithm *algorithm;
     Insertionsort insertionsort;
     Quicksort quicksort;
     Shellsort shellsort;
