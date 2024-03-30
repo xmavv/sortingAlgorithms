@@ -11,5 +11,9 @@ Quicksort::Quicksort() {
 }
 
 int Quicksort::sort(int *arr, int len) {
+
+    Utilities::printArray(arr, len, "twoja tablica po sortowaniu");
+
+//    delete [] arr;
     return 0;
 }

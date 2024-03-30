@@ -23,7 +23,8 @@ int Insertionsort::sort(int *arr, int len) {
         arr[j + 1] = key;
     }
 
-    Print::printArray(arr, len, "twoja tablica po sortowaniu");
+    Utilities::printArray(arr, len, "twoja tablica po sortowaniu");
 
+//    delete [] arr;
     return *arr;
 }

@@ -25,7 +25,8 @@ int Shellsort::sort(int *arr, int len) {
         }
     }
 
-    Print::printArray(arr, len, "twoja tablica po sortowaniu");
+    Utilities::printArray(arr, len, "twoja tablica po sortowaniu");
 
+//    delete [] arr;
     return *arr;
 }
