@@ -12,14 +12,13 @@
 #include "Utilities.h"
 
 // colors
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
-#define WHITE   "\033[37m"
+#define WHITE   7
+#define RED     12
+#define GREEN   10
+#define YELLOW  14
+#define BLUE    9
+#define MAGENTA 13
+#define CYAN    11
 
 using namespace std;
 

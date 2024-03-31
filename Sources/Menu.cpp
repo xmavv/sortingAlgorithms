@@ -5,6 +5,7 @@
 #include "time.h"
 #include "cstdlib"
 #include "fstream"
+#include "windows.h"
 
 using namespace std;
 
@@ -12,11 +13,16 @@ void Menu::start() {
     string fileName;
 
     while(userChoice != 1 || userChoice!= 2) {
-        cout<<"witaj w projekcie sortowanie!"<<endl;
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+        SetConsoleTextAttribute(hConsole, CYAN);
+        cout<<"witaj w projekcie sortowanie!"<<endl<<endl;
+        cout<<"--------------------MENU"<<endl;
         cout<<endl<<"wybierz sposob podania danych (korzystaj tylko z cyfr!)"<<endl;
         cout<<"1. wygeneruj losowo dane o zadanej dlugosci"<<endl;
         cout<<"2. wczytaj dane z pliku"<<endl;
         cout<<"0. wyjdz z programu"<<endl;
+        SetConsoleTextAttribute(hConsole, WHITE);
         cin>>userChoice;
 
         switch(userChoice) {
@@ -90,6 +96,7 @@ void Menu::chooseAlgorithm() {
         int arrayCopy[arrayLength]; //copying "original" array each time, so I have access to the one generated or loaded
         Utilities::copyArray(originalArray, arrayCopy, arrayLength);
 
+        cout<<"--------------------MENU"<<endl<<endl;
         cout<<"wybierz algorytm:"<<endl<<endl;
         cout<<"1. insertionsort"<<endl;
         cout<<"2. quicksort"<<endl;
@@ -104,18 +111,22 @@ void Menu::chooseAlgorithm() {
             case 1:
                 cout<<"wybrales 1 algorytm"<<endl;
                 insertionsort.sort(arrayCopy, arrayLength);
+                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 2:
                 cout<<"wybrales 2 algorytm"<<endl;
-                quicksort.sort(arrayCopy, 0, arrayLength);
+                quicksort.sort(arrayCopy, 0, (arrayLength-1));
+                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 3:
                 cout<<"wybrales 3 algorytm"<<endl;
                 shellsort.sort(arrayCopy, arrayLength);
+                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 4:
                 cout<<"wybrales 4 algorytm"<<endl;
                 heapsort.sort(arrayCopy, arrayLength);
+                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 5:
                 Utilities::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
