@@ -10,15 +10,49 @@ Quicksort::Quicksort() {
 
 }
 
-int Quicksort::sort(int *arr, int left, int right) {
+void Quicksort::sort(int *arr, int start, int end) {
+    if (start >= end)
+        return;
 
-//    Utilities::printArray(arr, len, "twoja tablica po sortowaniu");
+    // partitioning the array
+    int p = partition(arr, start, end);
 
-    cout<<"dziala normalnie;";
-//    delete [] arr;
-    return 0;
+    // Sorting the left part
+    sort(arr, start, p - 1);
+
+    // Sorting the right part
+    sort(arr, p + 1, end);
 }
 
 int Quicksort::partition(int *arr, int start, int end) {
-    return 0;
+    int pivot = arr[start];
+
+    int count = 0;
+    for (int i = start + 1; i <= end; i++) {
+        if (arr[i] <= pivot)
+            count++;
+    }
+
+    // Giving pivot element its correct position
+    int pivotIndex = start + count;
+    swap(arr[pivotIndex], arr[start]);
+
+    // Sorting left and right parts of the pivot element
+    int i = start, j = end;
+
+    while (i < pivotIndex && j > pivotIndex) {
+
+        while (arr[i] <= pivot) {
+            i++;
+        }
+
+        while (arr[j] > pivot) {
+            j--;
+        }
+
+        if (i < pivotIndex && j > pivotIndex) {
+            swap(arr[i++], arr[j--]);
+        }
+    }
+    return pivotIndex;
 }
