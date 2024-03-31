@@ -22,7 +22,6 @@
 
 using namespace std;
 
-
 class Menu {
     int userChoice;
     int *arrayToSort;

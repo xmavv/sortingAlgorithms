@@ -12,10 +12,11 @@ class Quicksort :public Algorithm {
     int *arr;
     int left;
     int right;
+    int pivotOption;
 public:
     Quicksort();
     int partition(int *arr, int left, int right);
-    void setArray(int *arr, int left, int right);
+    void setArray(int *arr, int left, int right, int pivotOption);
     void sortHelper(int *arr, int left, int right);
     virtual void sort();
 };

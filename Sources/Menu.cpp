@@ -5,7 +5,6 @@
 #include "time.h"
 #include "cstdlib"
 #include "fstream"
-#include "windows.h"
 
 using namespace std;
 
@@ -116,8 +115,14 @@ void Menu::chooseAlgorithm() {
                 break;
             case 2:
                 Utilities::printColorText(hConsole, "wybrales quicksort\n", GREEN);
+                cout<<"wybierz pivot"<<endl;
+                cout<<"1. skrajny lewy"<<endl;
+                cout<<"2. skrajny prawy"<<endl;
+                cout<<"3. srodkowy"<<endl;
+                cout<<"4. losowy"<<endl;
+                cin>>userChoice;
 
-                quicksort.setArray(arrayCopy, 0, (arrayLength-1));
+                quicksort.setArray(arrayCopy, 0, (arrayLength-1), userChoice);
                 algorithm = &quicksort;
                 start(algorithm);
 

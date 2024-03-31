@@ -10,10 +10,11 @@ Quicksort::Quicksort() {
 
 }
 
-void Quicksort::setArray(int *arr, int left, int right) {
+void Quicksort::setArray(int *arr, int left, int right, int pivotOption) {
     this -> arr = arr;
     this -> left = left;
     this -> right = right;
+    this -> pivotOption = pivotOption;
 }
 
 void Quicksort::sortHelper(int *arr, int left, int right) {
@@ -35,11 +36,23 @@ void Quicksort::sort() {
 }
 
 int Quicksort::partition(int *arr, int left, int right) {
-    int pivot = arr[left];
+    int pivotElement;
+
+    if(pivotOption == 1) {
+        pivotElement = arr[left];
+    } else if(pivotOption == 2) {
+        pivotElement = arr[right];
+    } else if(pivotOption == 3) {
+        pivotElement = arr[left + (right-left) /2];
+    } else {
+        srand(time(0));
+        int pivotRandom = left + rand() % (right - left +1);
+        pivotElement = arr[pivotRandom];
+    }
 
     int count = 0;
     for (int i = left + 1; i <= right; i++) {
-        if (arr[i] <= pivot)
+        if (arr[i] <= pivotElement)
             count++;
     }
 
@@ -52,11 +65,11 @@ int Quicksort::partition(int *arr, int left, int right) {
 
     while (i < pivotIndex && j > pivotIndex) {
 
-        while (arr[i] <= pivot) {
+        while (arr[i] <= pivotElement) {
             i++;
         }
 
-        while (arr[j] > pivot) {
+        while (arr[j] > pivotElement) {
             j--;
         }
 
