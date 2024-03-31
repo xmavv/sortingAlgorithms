@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void Menu::start() {
+void Menu::chooseArray() {
     string fileName;
 
     while(userChoice != 1 || userChoice!= 2) {
@@ -111,34 +111,44 @@ void Menu::chooseAlgorithm() {
             case 1:
                 cout<<"wybrales insertionsort"<<endl;
 
+                insertionsort.setArray(arrayCopy, arrayLength);
                 algorithm = &insertionsort;
-
-                u.startCounter(); //start
-                algorithm -> sort(arrayCopy, arrayLength); // sort
-                cout<<"czas sortowania w srodku funkcji: "<<u.getCounter()<<" [s]"<<endl; //stop
+                start(algorithm);
 
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu"); //print sorted
                 break;
             case 2:
                 cout<<"wybrales quicksort"<<endl;
-                quicksort.sort(arrayCopy,arrayLength, 0, (arrayLength-1));
+
+                quicksort.setArray(arrayCopy, 0, (arrayLength-1));
+                algorithm = &quicksort;
+                start(algorithm);
+
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 3:
                 cout<<"wybrales shellsort"<<endl;
-                shellsort.sort(arrayCopy, arrayLength);
+
+                shellsort.setArray(arrayCopy, arrayLength);
+                algorithm = &shellsort;
+                start(algorithm);
+
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 4:
                 cout<<"wybrales heapsort"<<endl;
-                heapsort.sort(arrayCopy, arrayLength);
+
+                heapsort.setArray(arrayCopy, arrayLength);
+                algorithm = &heapsort;
+                start(algorithm);
+
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 5:
                 Utilities::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
                 break;
             case 0:
-                start();
+                chooseArray();
                 break;
             default:
                 cerr<<"niepoprawny wybor!"<<endl;
@@ -147,4 +157,10 @@ void Menu::chooseAlgorithm() {
     }
 
     return;
+}
+
+void Menu::start(Algorithm *a) {
+    u.startCounter(); //start timer
+    algorithm -> sort(); // sort
+    cout<<endl<<"czas sortowania: "<<u.getCounter()<<" [s]"<<endl<<endl; //stop timer
 }

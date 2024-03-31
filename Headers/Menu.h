@@ -35,11 +35,11 @@ class Menu {
     Heapsort heapsort;
 
 public:
-    void start();
+    void chooseArray();
+    void chooseAlgorithm();
     void generateRandomArray(int len);
     void loadArrayFromFile(string name);
-    void chooseAlgorithm();
-    void wrapper(Algorithm *a);
+    void start(Algorithm *a);
 };
 
 

@@ -93,6 +93,6 @@ float avg(float *array, int ile){
 int main() {
 
     Menu menu;
-    menu.start();
+    menu.chooseArray();
     return 0;
 }
