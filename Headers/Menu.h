@@ -27,7 +27,8 @@ class Menu {
     int userChoice;
     int *arrayToSort;
     int arrayLength;
-//    Algorithm *algorithm;
+    Utilities u;
+    Algorithm *algorithm;
     Insertionsort insertionsort;
     Quicksort quicksort;
     Shellsort shellsort;
@@ -38,6 +39,7 @@ public:
     void generateRandomArray(int len);
     void loadArrayFromFile(string name);
     void chooseAlgorithm();
+    void wrapper(Algorithm *a);
 };
 
 

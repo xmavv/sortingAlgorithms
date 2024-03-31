@@ -54,7 +54,7 @@ void Menu::generateRandomArray(int len){
     srand(time(NULL));
 
     for(int i=0; i<len; i++) {
-        *pointer = rand()%200-100; //from -100 to 100
+        *pointer = rand()%2000-1000; //from -100 to 100
         pointer++;
     }
 
@@ -110,8 +110,14 @@ void Menu::chooseAlgorithm() {
         switch (userChoice) {
             case 1:
                 cout<<"wybrales insertionsort"<<endl;
-                insertionsort.sort(arrayCopy, arrayLength);
-                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
+
+                algorithm = &insertionsort;
+
+                u.startCounter(); //start
+                algorithm -> sort(arrayCopy, arrayLength); // sort
+                cout<<"czas sortowania w srodku funkcji: "<<u.getCounter()<<" [s]"<<endl; //stop
+
+                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu"); //print sorted
                 break;
             case 2:
                 cout<<"wybrales quicksort"<<endl;

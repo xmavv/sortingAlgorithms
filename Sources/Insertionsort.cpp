@@ -8,8 +8,6 @@ Insertionsort::Insertionsort() {
 }
 
 void Insertionsort::sort(int *arr, int len, int left, int right) {
-    u.startCounter();
-
     int i, key, j;
     for (i = 1; i < len; i++) {
         key = arr[i];
@@ -21,10 +19,6 @@ void Insertionsort::sort(int *arr, int len, int left, int right) {
         }
         arr[j + 1] = key;
     }
-
-    SetConsoleTextAttribute(hConsole, MAGENTA); //colors
-    cout<<"czas sortowania: "<<u.getCounter()<<" [s]"<<endl;
-    SetConsoleTextAttribute(hConsole, WHITE); //colors
 
     return;
 }
