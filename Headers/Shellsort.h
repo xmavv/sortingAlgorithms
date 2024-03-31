@@ -17,7 +17,8 @@ class Shellsort :public Algorithm<T> {
 public:
     Shellsort() {};
     void setArray(T *arr, int len, int type);
-//    void shellsortMarcinciur(vector<T>& arr);
+    void shellsortMarcinciur(T *arr, int len);
+    void shellsortN2(T *arr, int len);
     virtual void sort();
 };
 
