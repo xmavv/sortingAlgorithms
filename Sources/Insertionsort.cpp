@@ -3,16 +3,14 @@
 
 using namespace std;
 
-Insertionsort::Insertionsort() {
-
-}
-
-void Insertionsort::setArray(int *arr, int len) {
+template <typename T>
+void Insertionsort<T>::setArray(T *arr, int len) {
     this -> arr = arr;
     this -> len = len;
 }
 
-void Insertionsort::sort() {
+template <typename T>
+void Insertionsort<T>::sort() {
     int i, key, j;
     for (i = 1; i < len; i++) {
         key = arr[i];
@@ -27,3 +25,7 @@ void Insertionsort::sort() {
 
     return;
 }
+
+template class Insertionsort<int>;
+template class Insertionsort<float>;
+template class Insertionsort<char>;

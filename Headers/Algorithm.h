@@ -18,6 +18,7 @@
 
 using namespace std;
 
+template <typename T>
 class Algorithm {
 protected:
     Utilities u;

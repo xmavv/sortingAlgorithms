@@ -27,11 +27,11 @@ class Menu {
     int *arrayToSort;
     int arrayLength;
     Utilities u;
-    Algorithm *algorithm;
-    Insertionsort insertionsort;
-    Quicksort quicksort;
-    Shellsort shellsort;
-    Heapsort heapsort;
+//    Algorithm *algorithm;
+//    Insertionsort insertionsort;
+//    Quicksort quicksort;
+//    Shellsort shellsort;
+//    Heapsort heapsort;
 
 public:
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -40,7 +40,7 @@ public:
     void chooseAlgorithm();
     void generateRandomArray(int len);
     void loadArrayFromFile(string name);
-    void startAlgorithm(Algorithm *a);
+//    void startAlgorithm(Algorithm *a);
 };
 
 

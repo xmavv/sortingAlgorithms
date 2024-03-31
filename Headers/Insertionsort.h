@@ -8,12 +8,13 @@
 
 using namespace std;
 
-class Insertionsort :public Algorithm {
-    int *arr;
+template <typename T>
+class Insertionsort :public Algorithm<T> {
+    T *arr;
     int len;
 public:
-    Insertionsort();
-    void setArray(int *arr, int len);
+    Insertionsort() {};
+    void setArray(T *arr, int len);
     virtual void sort();
 };
 
