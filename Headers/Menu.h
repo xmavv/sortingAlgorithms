@@ -22,25 +22,27 @@
 
 using namespace std;
 
+template <typename T>
 class Menu {
+    int variableType;
     int userChoice;
-    int *arrayToSort;
+    T *arrayToSort;
     int arrayLength;
-    Utilities u;
-//    Algorithm *algorithm;
-//    Insertionsort insertionsort;
-//    Quicksort quicksort;
-//    Shellsort shellsort;
-//    Heapsort heapsort;
+    Utilities<T> u;
+    Algorithm<T> *algorithm;
+    Insertionsort<T> insertionsort;
+//    Quicksort<T> quicksort;
 
 public:
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+    Menu(int variableType);
+//    void chooseType();
     void chooseArray();
     void chooseAlgorithm();
     void generateRandomArray(int len);
     void loadArrayFromFile(string name);
-//    void startAlgorithm(Algorithm *a);
+    void startAlgorithm(Algorithm<T> *a);
 };
 
 

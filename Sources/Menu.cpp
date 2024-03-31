@@ -8,55 +8,76 @@
 
 using namespace std;
 
-void Menu::chooseArray() {
+template <typename T>
+Menu<T>::Menu(int variableType) {
+    this -> variableType = variableType;
+}
+
+template <typename T>
+void Menu<T>::chooseArray() {
     string fileName;
 
-    while(userChoice != 1 || userChoice!= 2) {
-        cout<<"witaj w projekcie sortowanie!"<<endl<<endl;
-        Utilities::printColorText(hConsole, "--------------------MENU--------------------\n\n", YELLOW);
+    while(userChoice != 1 || userChoice != 2 || userChoice != 0) {
+        u.printColorText(hConsole, "--------------------MENU-2--------------------", YELLOW);
         cout<<endl<<"wybierz sposob podania danych (korzystaj tylko z cyfr!)"<<endl;
         cout<<"1. wygeneruj losowo dane o zadanej dlugosci"<<endl;
         cout<<"2. wczytaj dane z pliku"<<endl;
-        cout<<"0. wyjdz z programu"<<endl;
+        cout<<"0. wyjdz do menu-1"<<endl;
         cin>>userChoice;
 
         switch(userChoice) {
             case 1:
-                Utilities::printColorText(hConsole, "podaj rozmiar tablicy ", MAGENTA);
+                Utilities<T>::printColorText(hConsole, "podaj rozmiar tablicy ", MAGENTA);
                 cin>>arrayLength;
                 generateRandomArray(arrayLength); //global arrayToSort variable changed, so we can work with it
                 chooseAlgorithm();
                 break;
             case 2:
-                Utilities::printColorText(hConsole, "podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!) ", MAGENTA);
+                Utilities<T>::printColorText(hConsole, "podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!) ", MAGENTA);
                 cin>>fileName;
                 loadArrayFromFile(fileName); //global arrayToSort variable changed, so we can work with it
                 chooseAlgorithm();
                 break;
             case 0:
-                exit(0);
+                break;
             default:
                 cerr<<"niepoprawny wybor!"<<endl;
                 break;
         }
+        return;
     }
+    return;
 }
 
-void Menu::generateRandomArray(int len){
-    arrayToSort = new int [len];
-    int *pointer = arrayToSort;
+template <typename T>
+void Menu<T>::generateRandomArray(int len){
+    arrayToSort = new T [len];
+    T *pointer = arrayToSort;
 
     srand(time(NULL));
 
-    for(int i=0; i<len; i++) {
-        *pointer = rand()%2000-1000; //from -100 to 100
-        pointer++;
+    if(variableType == 1) {
+        for(int i=0; i<len; i++) {
+            *pointer = rand()%2000-1000; //from -1000 to 1000
+            pointer++;
+        }
+    } else if(variableType == 2) {
+        for(int i=0; i<len; i++) {
+            *pointer = -1000.0f + static_cast<float>(rand()) / (RAND_MAX / (1000.0f - -1000.0f)); //from -1000 to 1000
+            pointer++;
+        }
+    } else {
+        for(int i=0; i<len; i++) {
+            *pointer = rand()%1000; //from 0 to 1000 https://en.wikipedia.org/wiki/List_of_Unicode_characters
+            pointer++;
+        }
     }
 
-    Utilities::printArray(arrayToSort, len, "twoja tablica");
+    Utilities<T>::printArray(arrayToSort, len, "twoja tablica");
 }
 
-void Menu::loadArrayFromFile(string name) {
+template <typename T>
+void Menu<T>::loadArrayFromFile(string name) {
     fstream file;
     file.open(name,ios::in);
 
@@ -71,29 +92,41 @@ void Menu::loadArrayFromFile(string name) {
         arrayLength = stoi(line); //StringTOInt
     }
 
-    arrayToSort = new int [arrayLength];
-    int *pointer = arrayToSort;
+    arrayToSort = new T [arrayLength];
+    T *pointer = arrayToSort;
 
-    while(getline(file, line)) {
-        *pointer = stoi(line);
-        pointer++;
+    if(variableType == 1) {
+        while(getline(file, line)) {
+            *pointer = stoi(line);
+            pointer++;
+        }
+    } else if(variableType == 2) {
+        while(getline(file, line)) {
+            cout<<line<<endl;
+            *pointer = stof(line);
+            pointer++;
+        }
+    } else {
+        while (getline(file, line)) {
+            *pointer = line[0];
+            pointer++;
+        }
     }
 
-    Utilities::printArray(arrayToSort, arrayLength, "twoja tablica");
+    Utilities<T>::printArray(arrayToSort, arrayLength, "twoja tablica");
 }
 
-void Menu::chooseAlgorithm() {
-    int originalArray[arrayLength]; //copying original array to delete the pointer
-    Utilities::copyArray(arrayToSort, originalArray, arrayLength);
+template <typename T>
+void Menu<T>::chooseAlgorithm() {
+    T originalArray[arrayLength]; //copying original array to delete the pointer
+    Utilities<T>::copyArray(arrayToSort, originalArray, arrayLength);
     delete [] arrayToSort;
 
-    Insertionsort<int> insertionsort;
-
     while(userChoice != 0) {
-        int arrayCopy[arrayLength]; //copying "original" array each time, so I have access to the one generated or loaded
-        Utilities::copyArray(originalArray, arrayCopy, arrayLength);
+        T arrayCopy[arrayLength]; //copying "original" array each time, so I have access to the one generated or loaded
+        Utilities<T>::copyArray(originalArray, arrayCopy, arrayLength);
 
-        Utilities::printColorText(hConsole, "--------------------MENU--------------------\n\n", YELLOW);
+        Utilities<T>::printColorText(hConsole, "--------------------MENU-3--------------------", YELLOW);
         cout<<"wybierz algorytm:"<<endl<<endl;
         cout<<"1. insertionsort"<<endl;
         cout<<"2. quicksort"<<endl;
@@ -101,19 +134,18 @@ void Menu::chooseAlgorithm() {
         cout<<"4. heapsort"<<endl<<endl;
         cout<<"lub: "<<endl<<endl;
         cout<<"5. pokaz aktualna tablice"<<endl;
-        cout<<"0. wyjdz do menu"<<endl;
+        cout<<"0. wyjdz do menu-2"<<endl;
         cin>>userChoice;
 
         switch (userChoice) {
             case 1:
-                Utilities::printColorText(hConsole, "wybrales insertionsort\n", GREEN);
+                Utilities<T>::printColorText(hConsole, "wybrales insertionsort\n", GREEN);
 
                 insertionsort.setArray(arrayCopy, arrayLength);
-//                algorithm = &insertionsort;
-//                startAlgorithm(algorithm);
-                insertionsort.sort();
+                algorithm = &insertionsort;
+                startAlgorithm(algorithm);
 
-                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu"); //print sorted
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu"); //print sorted
                 break;
 //            case 2:
 //                Utilities::printColorText(hConsole, "wybrales quicksort\n", GREEN);
@@ -153,7 +185,7 @@ void Menu::chooseAlgorithm() {
 //                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
 //                break;
             case 5:
-                Utilities::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
                 break;
             case 0:
                 chooseArray();
@@ -163,13 +195,17 @@ void Menu::chooseAlgorithm() {
                 break;
         }
     }
-
     return;
 }
 
-//void Menu::startAlgorithm(Algorithm *a) {
-//    u.startCounter(); //start timer
-//    algorithm -> sort(); // sort
-//    double stop = u.getCounter();
-//    Utilities::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
-//}
+template <typename T>
+void Menu<T>::startAlgorithm(Algorithm<T> *a) {
+    u.startCounter(); //start timer
+    algorithm -> sort(); // sort
+    double stop = u.getCounter();
+    Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
+}
+
+template class Menu<int>;
+template class Menu<float>;
+template class Menu<char>;
