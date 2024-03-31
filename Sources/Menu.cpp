@@ -109,22 +109,22 @@ void Menu::chooseAlgorithm() {
 
         switch (userChoice) {
             case 1:
-                cout<<"wybrales 1 algorytm"<<endl;
+                cout<<"wybrales insertionsort"<<endl;
                 insertionsort.sort(arrayCopy, arrayLength);
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 2:
-                cout<<"wybrales 2 algorytm"<<endl;
-                quicksort.sort(arrayCopy, 0, (arrayLength-1));
+                cout<<"wybrales quicksort"<<endl;
+                quicksort.sort(arrayCopy,arrayLength, 0, (arrayLength-1));
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 3:
-                cout<<"wybrales 3 algorytm"<<endl;
+                cout<<"wybrales shellsort"<<endl;
                 shellsort.sort(arrayCopy, arrayLength);
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 4:
-                cout<<"wybrales 4 algorytm"<<endl;
+                cout<<"wybrales heapsort"<<endl;
                 heapsort.sort(arrayCopy, arrayLength);
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;

@@ -10,35 +10,35 @@ Quicksort::Quicksort() {
 
 }
 
-void Quicksort::sort(int *arr, int start, int end) {
-    if (start >= end)
+void Quicksort::sort(int *arr, int len, int left, int right) {
+    if (left >= right)
         return;
 
     // partitioning the array
-    int p = partition(arr, start, end);
+    int p = partition(arr, left, right);
 
     // Sorting the left part
-    sort(arr, start, p - 1);
+    sort(arr, left, p - 1);
 
     // Sorting the right part
-    sort(arr, p + 1, end);
+    sort(arr, p + 1, right);
 }
 
-int Quicksort::partition(int *arr, int start, int end) {
-    int pivot = arr[start];
+int Quicksort::partition(int *arr, int left, int right) {
+    int pivot = arr[left];
 
     int count = 0;
-    for (int i = start + 1; i <= end; i++) {
+    for (int i = left + 1; i <= right; i++) {
         if (arr[i] <= pivot)
             count++;
     }
 
     // Giving pivot element its correct position
-    int pivotIndex = start + count;
-    swap(arr[pivotIndex], arr[start]);
+    int pivotIndex = left + count;
+    swap(arr[pivotIndex], arr[left]);
 
     // Sorting left and right parts of the pivot element
-    int i = start, j = end;
+    int i = left, j = right;
 
     while (i < pivotIndex && j > pivotIndex) {
 

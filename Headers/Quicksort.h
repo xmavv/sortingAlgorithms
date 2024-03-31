@@ -8,11 +8,11 @@
 
 using namespace std;
 
-class Quicksort {
+class Quicksort :public Algorithm {
 public:
     Quicksort();
     int partition(int *arr, int start, int end);
-    void sort(int *arr, int left, int right);
+    virtual void sort(int *arr, int len, int left = 0, int right = 0);
 };
 
 

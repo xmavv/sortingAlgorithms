@@ -1,9 +1,5 @@
 #include "../Headers/Insertionsort.h"
-#include "stdio.h"
 #include "iostream"
-#include "time.h"
-#include "cstdlib"
-#include "windows.h"
 
 using namespace std;
 
@@ -11,9 +7,7 @@ Insertionsort::Insertionsort() {
 
 }
 
-void Insertionsort::sort(int *arr, int len) {
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
+void Insertionsort::sort(int *arr, int len, int left, int right) {
     u.startCounter();
 
     int i, key, j;
@@ -28,9 +22,9 @@ void Insertionsort::sort(int *arr, int len) {
         arr[j + 1] = key;
     }
 
-    SetConsoleTextAttribute(hConsole, 13); //colors
+    SetConsoleTextAttribute(hConsole, MAGENTA); //colors
     cout<<"czas sortowania: "<<u.getCounter()<<" [s]"<<endl;
-    SetConsoleTextAttribute(hConsole, 7); //colors
+    SetConsoleTextAttribute(hConsole, WHITE); //colors
 
     return;
 }

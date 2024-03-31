@@ -32,7 +32,7 @@ void Heapsort::heapify(int arr[], int n, int i) {
     }
 }
 
-void Heapsort::sort(int *arr, int len) {
+void Heapsort::sort(int *arr, int len, int left, int right) {
     for (int i = len / 2 - 1; i >= 0; i--)
         heapify(arr, len, i);
 
@@ -45,6 +45,5 @@ void Heapsort::sort(int *arr, int len) {
         heapify(arr, i, 0);
     }
 
-//    delete [] arr;
     return;
 }

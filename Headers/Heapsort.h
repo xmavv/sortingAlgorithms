@@ -8,11 +8,11 @@
 
 using namespace std;
 
-class Heapsort {
+class Heapsort :public Algorithm {
 public:
     Heapsort();
     void heapify(int arr[], int n, int i);
-    void sort(int *arr, int len);
+    virtual void sort(int *arr, int len, int left = 0, int right = 0);
 };
 
 
