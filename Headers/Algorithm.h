@@ -23,7 +23,7 @@ protected:
     Utilities u;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 public:
-    virtual void sort(int *arr, int len, int left = 0 , int right = 0) = 0;
+    virtual void sort() = 0;
 };
 
 #endif //PROJEKT_SORTOWANIE_ALGORITHM_H

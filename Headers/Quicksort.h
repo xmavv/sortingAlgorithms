@@ -9,10 +9,15 @@
 using namespace std;
 
 class Quicksort :public Algorithm {
+    int *arr;
+    int left;
+    int right;
 public:
     Quicksort();
-    int partition(int *arr, int start, int end);
-    virtual void sort(int *arr, int len, int left = 0, int right = 0);
+    int partition(int *arr, int left, int right);
+    void setArray(int *arr, int left, int right);
+    void sortHelper(int *arr, int left, int right);
+    virtual void sort();
 };
 
 

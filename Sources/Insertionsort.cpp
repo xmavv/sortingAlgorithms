@@ -7,7 +7,12 @@ Insertionsort::Insertionsort() {
 
 }
 
-void Insertionsort::sort(int *arr, int len, int left, int right) {
+void Insertionsort::setArray(int *arr, int len) {
+    this -> arr = arr;
+    this -> len = len;
+}
+
+void Insertionsort::sort() {
     int i, key, j;
     for (i = 1; i < len; i++) {
         key = arr[i];

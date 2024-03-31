@@ -9,9 +9,12 @@
 using namespace std;
 
 class Insertionsort :public Algorithm {
+    int *arr;
+    int len;
 public:
     Insertionsort();
-    virtual void sort(int *arr, int len, int left = 0, int right = 0);
+    void setArray(int *arr, int len);
+    virtual void sort();
 };
 
 

@@ -10,7 +10,13 @@ Quicksort::Quicksort() {
 
 }
 
-void Quicksort::sort(int *arr, int len, int left, int right) {
+void Quicksort::setArray(int *arr, int left, int right) {
+    this -> arr = arr;
+    this -> left = left;
+    this -> right = right;
+}
+
+void Quicksort::sortHelper(int *arr, int left, int right) {
     if (left >= right)
         return;
 
@@ -18,10 +24,14 @@ void Quicksort::sort(int *arr, int len, int left, int right) {
     int p = partition(arr, left, right);
 
     // Sorting the left part
-    sort(arr, left, p - 1);
+    sortHelper(arr, left, p - 1);
 
     // Sorting the right part
-    sort(arr, p + 1, right);
+    sortHelper(arr, p + 1, right);
+}
+
+void Quicksort::sort() {
+    sortHelper(arr, left, right);
 }
 
 int Quicksort::partition(int *arr, int left, int right) {

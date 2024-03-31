@@ -10,9 +10,12 @@ Shellsort::Shellsort() {
 
 }
 
-void Shellsort::sort(int *arr, int len, int left, int right) {
-    u.startCounter();
+void Shellsort::setArray(int *arr, int len) {
+    this -> arr = arr;
+    this -> len = len;
+}
 
+void Shellsort::sort() {
     for (int gap = len/2; gap > 0; gap /= 2)
     {
         for (int i = gap; i < len; i += 1)
@@ -26,8 +29,6 @@ void Shellsort::sort(int *arr, int len, int left, int right) {
             arr[j] = temp;
         }
     }
-
-    Utilities::printArray(arr, len, "twoja tablica po sortowaniu");
 
     return;
 }

@@ -10,6 +10,11 @@ Heapsort::Heapsort() {
 
 }
 
+void Heapsort::setArray(int *arr, int len) {
+    this -> arr = arr;
+    this -> len = len;
+}
+
 void Heapsort::heapify(int arr[], int n, int i) {
     int largest = i; // Initialize largest as root Since we are using 0 based indexing
     int l = 2 * i + 1; // left = 2*i + 1
@@ -32,7 +37,7 @@ void Heapsort::heapify(int arr[], int n, int i) {
     }
 }
 
-void Heapsort::sort(int *arr, int len, int left, int right) {
+void Heapsort::sort() {
     for (int i = len / 2 - 1; i >= 0; i--)
         heapify(arr, len, i);
 
