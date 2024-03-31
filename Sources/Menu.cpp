@@ -68,7 +68,7 @@ void Menu<T>::generateRandomArray(int len){
         }
     } else {
         for(int i=0; i<len; i++) {
-            *pointer = rand()%1000; //from 0 to 1000 https://en.wikipedia.org/wiki/List_of_Unicode_characters
+            *pointer = rand()%255; //from 0 to 255 https://pl.wikipedia.org/wiki/CP852
             pointer++;
         }
     }
@@ -147,43 +147,43 @@ void Menu<T>::chooseAlgorithm() {
 
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu"); //print sorted
                 break;
-//            case 2:
-//                Utilities::printColorText(hConsole, "wybrales quicksort\n", GREEN);
-//                cout<<"wybierz pivot"<<endl;
-//                cout<<"1. skrajny lewy"<<endl;
-//                cout<<"2. skrajny prawy"<<endl;
-//                cout<<"3. srodkowy"<<endl;
-//                cout<<"4. losowy"<<endl;
-//                cin>>userChoice;
-//
-//                quicksort.setArray(arrayCopy, 0, (arrayLength-1), userChoice);
-//                algorithm = &quicksort;
-//                startAlgorithm(algorithm);
-//
-//                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
-//                break;
-//            case 3:
-//                Utilities::printColorText(hConsole, "wybrales shellsort\n", GREEN);
-//                cout<<"wybierz typ"<<endl;
-//                cout<<"1. sekwencja marcin ciura"<<endl;
-//                cout<<"2. sekwencja n/2"<<endl;
-//                cin>>userChoice;
-//
-//                shellsort.setArray(arrayCopy, arrayLength, userChoice);
-//                algorithm = &shellsort;
-//                startAlgorithm(algorithm);
-//
-//                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
-//                break;
-//            case 4:
-//                Utilities::printColorText(hConsole, "wybrales heapsort\n", GREEN);
-//
-//                heapsort.setArray(arrayCopy, arrayLength);
-//                algorithm = &heapsort;
-//                startAlgorithm(algorithm);
-//
-//                Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
-//                break;
+            case 2:
+                Utilities<T>::printColorText(hConsole, "wybrales quicksort\n", GREEN);
+                cout<<"wybierz pivot"<<endl;
+                cout<<"1. skrajny lewy"<<endl;
+                cout<<"2. skrajny prawy"<<endl;
+                cout<<"3. srodkowy"<<endl;
+                cout<<"4. losowy"<<endl;
+                cin>>userChoice;
+
+                quicksort.setArray(arrayCopy, 0, (arrayLength-1), userChoice);
+                algorithm = &quicksort;
+                startAlgorithm(algorithm);
+
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
+                break;
+            case 3:
+                Utilities<T>::printColorText(hConsole, "wybrales shellsort\n", GREEN);
+                cout<<"wybierz typ"<<endl;
+                cout<<"1. sekwencja marcin ciura"<<endl;
+                cout<<"2. sekwencja n/2"<<endl;
+                cin>>userChoice;
+
+                shellsort.setArray(arrayCopy, arrayLength, userChoice);
+                algorithm = &shellsort;
+                startAlgorithm(algorithm);
+
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
+                break;
+            case 4:
+                Utilities<T>::printColorText(hConsole, "wybrales heapsort\n", GREEN);
+
+                heapsort.setArray(arrayCopy, arrayLength);
+                algorithm = &heapsort;
+                startAlgorithm(algorithm);
+
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
+                break;
             case 5:
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
                 break;

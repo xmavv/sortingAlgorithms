@@ -31,7 +31,9 @@ class Menu {
     Utilities<T> u;
     Algorithm<T> *algorithm;
     Insertionsort<T> insertionsort;
-//    Quicksort<T> quicksort;
+    Quicksort<T> quicksort;
+    Shellsort<T> shellsort;
+    Heapsort<T> heapsort;
 
 public:
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
