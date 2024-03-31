@@ -4,6 +4,7 @@
 #include "iostream"
 #include "time.h"
 #include "cstdlib"
+#include "windows.h"
 
 // colors
 #define WHITE   7
@@ -22,6 +23,7 @@ class Utilities {
 public:
     Utilities();
     static void printArray(int *arr, int len, string mes);
+    static void printColorText(HANDLE console, string message, int color);
     static void copyArray(int *arr, int *arrayCopy, int len);
     void startCounter();
     double getCounter();

@@ -35,6 +35,8 @@ class Menu {
     Heapsort heapsort;
 
 public:
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
     void chooseArray();
     void chooseAlgorithm();
     void generateRandomArray(int len);

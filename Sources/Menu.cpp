@@ -13,27 +13,23 @@ void Menu::chooseArray() {
     string fileName;
 
     while(userChoice != 1 || userChoice!= 2) {
-        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
-        SetConsoleTextAttribute(hConsole, CYAN);
         cout<<"witaj w projekcie sortowanie!"<<endl<<endl;
-        cout<<"--------------------MENU"<<endl;
+        Utilities::printColorText(hConsole, "--------------------MENU--------------------\n\n", YELLOW);
         cout<<endl<<"wybierz sposob podania danych (korzystaj tylko z cyfr!)"<<endl;
         cout<<"1. wygeneruj losowo dane o zadanej dlugosci"<<endl;
         cout<<"2. wczytaj dane z pliku"<<endl;
         cout<<"0. wyjdz z programu"<<endl;
-        SetConsoleTextAttribute(hConsole, WHITE);
         cin>>userChoice;
 
         switch(userChoice) {
             case 1:
-                cout<<"podaj rozmiar tablicy"<<endl;
+                Utilities::printColorText(hConsole, "podaj rozmiar tablicy ", MAGENTA);
                 cin>>arrayLength;
                 generateRandomArray(arrayLength); //global arrayToSort variable changed, so we can work with it
                 chooseAlgorithm();
                 break;
             case 2:
-                cout<<"podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!)"<<endl;
+                Utilities::printColorText(hConsole, "podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!) ", MAGENTA);
                 cin>>fileName;
                 loadArrayFromFile(fileName); //global arrayToSort variable changed, so we can work with it
                 chooseAlgorithm();
@@ -96,7 +92,8 @@ void Menu::chooseAlgorithm() {
         int arrayCopy[arrayLength]; //copying "original" array each time, so I have access to the one generated or loaded
         Utilities::copyArray(originalArray, arrayCopy, arrayLength);
 
-        cout<<"--------------------MENU"<<endl<<endl;
+
+        Utilities::printColorText(hConsole, "--------------------MENU--------------------\n\n", YELLOW);
         cout<<"wybierz algorytm:"<<endl<<endl;
         cout<<"1. insertionsort"<<endl;
         cout<<"2. quicksort"<<endl;
@@ -109,7 +106,7 @@ void Menu::chooseAlgorithm() {
 
         switch (userChoice) {
             case 1:
-                cout<<"wybrales insertionsort"<<endl;
+                Utilities::printColorText(hConsole, "wybrales insertionsort\n", GREEN);
 
                 insertionsort.setArray(arrayCopy, arrayLength);
                 algorithm = &insertionsort;
@@ -118,7 +115,7 @@ void Menu::chooseAlgorithm() {
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu"); //print sorted
                 break;
             case 2:
-                cout<<"wybrales quicksort"<<endl;
+                Utilities::printColorText(hConsole, "wybrales quicksort\n", GREEN);
 
                 quicksort.setArray(arrayCopy, 0, (arrayLength-1));
                 algorithm = &quicksort;
@@ -127,7 +124,7 @@ void Menu::chooseAlgorithm() {
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 3:
-                cout<<"wybrales shellsort"<<endl;
+                Utilities::printColorText(hConsole, "wybrales shellsort\n", GREEN);
 
                 shellsort.setArray(arrayCopy, arrayLength);
                 algorithm = &shellsort;
@@ -136,7 +133,7 @@ void Menu::chooseAlgorithm() {
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 4:
-                cout<<"wybrales heapsort"<<endl;
+                Utilities::printColorText(hConsole, "wybrales heapsort\n", GREEN);
 
                 heapsort.setArray(arrayCopy, arrayLength);
                 algorithm = &heapsort;
@@ -162,5 +159,6 @@ void Menu::chooseAlgorithm() {
 void Menu::start(Algorithm *a) {
     u.startCounter(); //start timer
     algorithm -> sort(); // sort
-    cout<<endl<<"czas sortowania: "<<u.getCounter()<<" [s]"<<endl<<endl; //stop timer
+    double stop = u.getCounter();
+    Utilities::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
 }

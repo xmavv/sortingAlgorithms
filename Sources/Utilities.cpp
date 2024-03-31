@@ -44,8 +44,15 @@ void Utilities::startCounter() {
     QueryPerformanceCounter(&li);
     start = li.QuadPart;
 }
+
 double Utilities::getCounter() {
     LARGE_INTEGER li;
     QueryPerformanceCounter(&li);
     return double(li.QuadPart-start)/PCFreq;
+}
+
+void Utilities::printColorText(HANDLE console, string message, int color) {
+    SetConsoleTextAttribute(console, color);
+    cout<<message;
+    SetConsoleTextAttribute(console, WHITE);
 }
