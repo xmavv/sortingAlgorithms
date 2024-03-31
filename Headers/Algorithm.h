@@ -4,13 +4,26 @@
 #include "iostream"
 #include "time.h"
 #include "cstdlib"
+#include "windows.h"
 #include "Utilities.h"
+
+// colors
+#define WHITE   7
+#define RED     12
+#define GREEN   10
+#define YELLOW  14
+#define BLUE    9
+#define MAGENTA 13
+#define CYAN    11
 
 using namespace std;
 
 class Algorithm {
+protected:
+    Utilities u;
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 public:
-    virtual void sort(int *arr, int len);
+    virtual void sort(int *arr, int len, int left , int right) = 0;
 };
 
 #endif //PROJEKT_SORTOWANIE_ALGORITHM_H
