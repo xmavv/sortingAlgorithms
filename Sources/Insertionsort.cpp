@@ -3,6 +3,7 @@
 #include "iostream"
 #include "time.h"
 #include "cstdlib"
+#include "windows.h"
 
 using namespace std;
 
@@ -10,7 +11,11 @@ Insertionsort::Insertionsort() {
 
 }
 
-int Insertionsort::sort(int *arr, int len) {
+void Insertionsort::sort(int *arr, int len) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    u.startCounter();
+
     int i, key, j;
     for (i = 1; i < len; i++) {
         key = arr[i];
@@ -23,8 +28,9 @@ int Insertionsort::sort(int *arr, int len) {
         arr[j + 1] = key;
     }
 
-    Utilities::printArray(arr, len, "twoja tablica po sortowaniu");
+    SetConsoleTextAttribute(hConsole, 13); //colors
+    cout<<"czas sortowania: "<<u.getCounter()<<" [s]"<<endl;
+    SetConsoleTextAttribute(hConsole, 7); //colors
 
-//    delete [] arr;
-    return *arr;
+    return;
 }
