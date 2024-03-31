@@ -109,7 +109,7 @@ void Menu::chooseAlgorithm() {
 
                 insertionsort.setArray(arrayCopy, arrayLength);
                 algorithm = &insertionsort;
-                start(algorithm);
+                startAlgorithm(algorithm);
 
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu"); //print sorted
                 break;
@@ -124,16 +124,20 @@ void Menu::chooseAlgorithm() {
 
                 quicksort.setArray(arrayCopy, 0, (arrayLength-1), userChoice);
                 algorithm = &quicksort;
-                start(algorithm);
+                startAlgorithm(algorithm);
 
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 3:
                 Utilities::printColorText(hConsole, "wybrales shellsort\n", GREEN);
+                cout<<"wybierz typ"<<endl;
+                cout<<"1. sekwencja marcin ciura"<<endl;
+                cout<<"2. sekwencja n/2"<<endl;
+                cin>>userChoice;
 
-                shellsort.setArray(arrayCopy, arrayLength);
+                shellsort.setArray(arrayCopy, arrayLength, userChoice);
                 algorithm = &shellsort;
-                start(algorithm);
+                startAlgorithm(algorithm);
 
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
@@ -142,7 +146,7 @@ void Menu::chooseAlgorithm() {
 
                 heapsort.setArray(arrayCopy, arrayLength);
                 algorithm = &heapsort;
-                start(algorithm);
+                startAlgorithm(algorithm);
 
                 Utilities::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
@@ -161,7 +165,7 @@ void Menu::chooseAlgorithm() {
     return;
 }
 
-void Menu::start(Algorithm *a) {
+void Menu::startAlgorithm(Algorithm *a) {
     u.startCounter(); //start timer
     algorithm -> sort(); // sort
     double stop = u.getCounter();

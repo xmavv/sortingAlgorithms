@@ -40,7 +40,7 @@ public:
     void chooseAlgorithm();
     void generateRandomArray(int len);
     void loadArrayFromFile(string name);
-    void start(Algorithm *a);
+    void startAlgorithm(Algorithm *a);
 };
 
 
