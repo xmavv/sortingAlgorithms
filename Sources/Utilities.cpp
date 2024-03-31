@@ -7,11 +7,8 @@
 
 using namespace std;
 
-Utilities::Utilities() {
-
-}
-
-void Utilities::printArray(int *arr, int len, string mes){
+template <typename T>
+void Utilities<T>::printArray(T *arr, int len, string mes){
     cout<<mes<<": [";
 
     for (int i = 0; i < len; ++i) {
@@ -25,13 +22,15 @@ void Utilities::printArray(int *arr, int len, string mes){
     cin.get();
 }
 
-void Utilities::copyArray(int *arr,  int arrayCopy[], int len) {
+template <typename T>
+void Utilities<T>::copyArray(T *arr,  T arrayCopy[], int len) {
     for (int i = 0; i < len; ++i) {
         arrayCopy[i] = arr[i];
     }
 }
 
-void Utilities::startCounter() {
+template <typename T>
+void Utilities<T>::startCounter() {
     PCFreq = 0.0;
     start = 0;
 
@@ -45,14 +44,20 @@ void Utilities::startCounter() {
     start = li.QuadPart;
 }
 
-double Utilities::getCounter() {
+template <typename T>
+double Utilities<T>::getCounter() {
     LARGE_INTEGER li;
     QueryPerformanceCounter(&li);
     return double(li.QuadPart-start)/PCFreq;
 }
 
-void Utilities::printColorText(HANDLE console, string message, int color) {
+template <typename T>
+void Utilities<T>::printColorText(HANDLE console, string message, int color) {
     SetConsoleTextAttribute(console, color);
-    cout<<message;
+    cout<<endl<<message<<endl<<endl;
     SetConsoleTextAttribute(console, WHITE);
 }
+
+template class Utilities<int>;
+template class Utilities<float>;
+template class Utilities<char>;

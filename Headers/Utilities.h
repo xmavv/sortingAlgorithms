@@ -17,14 +17,15 @@
 
 using namespace std;
 
+template <typename T>
 class Utilities {
     double PCFreq = 0.0;
     __int64 start = 0;
 public:
-    Utilities();
-    static void printArray(int *arr, int len, string mes);
+    Utilities() {};
+    static void printArray(T *arr, int len, string mes);
     static void printColorText(HANDLE console, string message, int color);
-    static void copyArray(int *arr, int *arrayCopy, int len);
+    static void copyArray(T *arr, T *arrayCopy, int len);
     void startCounter();
     double getCounter();
 };
