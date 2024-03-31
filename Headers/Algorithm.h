@@ -10,7 +10,7 @@ using namespace std;
 
 class Algorithm {
 public:
-    virtual int sort(int *arr, int len);
+    virtual void sort(int *arr, int len);
 };
 
 #endif //PROJEKT_SORTOWANIE_ALGORITHM_H

@@ -5,13 +5,15 @@
 #include "time.h"
 #include "cstdlib"
 #include "Algorithm.h"
+#include "Utilities.h"
 
 using namespace std;
 
 class Insertionsort {
+    Utilities u;
 public:
     Insertionsort();
-     int sort(int *arr, int len);
+     void sort(int *arr, int len);
 };
 
 

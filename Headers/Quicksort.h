@@ -12,7 +12,7 @@ class Quicksort {
 public:
     Quicksort();
     int partition(int *arr, int start, int end);
-    int sort(int *arr, int left, int right);
+    void sort(int *arr, int left, int right);
 };
 
 

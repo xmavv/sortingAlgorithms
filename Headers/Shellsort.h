@@ -11,7 +11,7 @@ using namespace std;
 class Shellsort  {
 public:
     Shellsort();
-     int sort(int *arr, int len);
+     void sort(int *arr, int len);
 };
 
 

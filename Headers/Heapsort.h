@@ -11,7 +11,8 @@ using namespace std;
 class Heapsort {
 public:
     Heapsort();
-    int sort(int *arr, int len);
+    void heapify(int arr[], int n, int i);
+    void sort(int *arr, int len);
 };
 
 
