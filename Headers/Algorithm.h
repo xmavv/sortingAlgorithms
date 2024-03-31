@@ -21,7 +21,7 @@ using namespace std;
 template <typename T>
 class Algorithm {
 protected:
-    Utilities u;
+    Utilities<T> u;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 public:
     virtual void sort() = 0;

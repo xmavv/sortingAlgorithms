@@ -11,7 +11,9 @@ void Insertionsort<T>::setArray(T *arr, int len) {
 
 template <typename T>
 void Insertionsort<T>::sort() {
-    int i, key, j;
+    int i, j;
+    double key;
+
     for (i = 1; i < len; i++) {
         key = arr[i];
         j = i - 1;
@@ -22,7 +24,6 @@ void Insertionsort<T>::sort() {
         }
         arr[j + 1] = key;
     }
-
     return;
 }
 
