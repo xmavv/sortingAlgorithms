@@ -91,9 +91,9 @@ float avg(float *array, int ile){
 }
 
 int main() {
-    int variableType;
+    int variableType = 1;
 
-    while(variableType != 1 || variableType != 2 || variableType != 3) {
+    while(true) {
         cout << "witaj w projekcie sortowanie!" << endl << endl;
         cout << "--------------------MENU-1--------------------" << endl << endl;
         cout << endl << "wybierz typ danych na ktorym chcesz pracowac" << endl;
@@ -112,8 +112,10 @@ int main() {
         } else if(variableType == 3) {
             Menu<char> menu3(variableType);
             menu3.chooseArray();
-        } else {
+        } else if(variableType == 0) {
             exit(0);
+        } else {
+            cerr<<"nieprawidlowy wybor!"<<endl;
         }
     }
 

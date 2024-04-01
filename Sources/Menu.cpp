@@ -17,7 +17,7 @@ template <typename T>
 void Menu<T>::chooseArray() {
     string fileName;
 
-    while(userChoice != 1 || userChoice != 2 || userChoice != 0) {
+    while(true) {
         u.printColorText(hConsole, "--------------------MENU-2--------------------", YELLOW);
         cout<<endl<<"wybierz sposob podania danych (korzystaj tylko z cyfr!)"<<endl;
         cout<<"1. wygeneruj losowo dane o zadanej dlugosci"<<endl;
@@ -39,14 +39,13 @@ void Menu<T>::chooseArray() {
                 chooseAlgorithm();
                 break;
             case 0:
-                break;
+                return;
             default:
                 cerr<<"niepoprawny wybor!"<<endl;
-                break;
         }
-        return;
+
+        if(userChoice == 0) return;
     }
-    return;
 }
 
 template <typename T>
