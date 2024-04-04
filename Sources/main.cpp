@@ -2,12 +2,8 @@
 #include "iostream"
 #include "time.h"
 #include "cstdlib"
+#include "../Headers/App.h"
 #include "../Headers/Menu.h"
-#include "../Headers/Algorithm.h"
-#include "../Headers/Heapsort.h"
-#include "../Headers/Insertionsort.h"
-#include "../Headers/Quicksort.h"
-#include "../Headers/Shellsort.h"
 
 using namespace std;
 int ile;
@@ -91,8 +87,8 @@ float avg(float *array, int ile){
 }
 
 int main() {
+    App app;
+    app.run();
 
-    Menu menu;
-    menu.chooseArray();
     return 0;
 }
