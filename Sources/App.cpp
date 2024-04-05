@@ -8,12 +8,13 @@ void App::run() {
     int variableType;
 
     while(true) {
-        cout << "witaj w projekcie sortowanie!" << endl << endl;
+        cout << "witaj w projekcie sortowanie! poruszając się po menu korzystaj tylko z cyfr!" << endl << endl;
         cout << "--------------------MENU-1--------------------" << endl << endl;
         cout << endl << "wybierz typ danych na ktorym chcesz pracowac" << endl;
         cout << "1. int" << endl;
         cout << "2. float" << endl;
-        cout << "3. char" << endl;
+        cout << "3. char" << endl<<endl;
+        cout<<"lub: "<<endl<<endl;
         cout << "0. wyjdz z programu" << endl;
         cin>>variableType;
 

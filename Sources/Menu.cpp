@@ -5,6 +5,7 @@
 #include "time.h"
 #include "cstdlib"
 #include "fstream"
+#include "algorithm"
 
 using namespace std;
 
@@ -19,10 +20,12 @@ void Menu<T>::chooseArray() {
 
     while(true) {
         u.printColorText(hConsole, "--------------------MENU-2--------------------", YELLOW);
-        cout<<endl<<"wybierz sposob podania danych (korzystaj tylko z cyfr!)"<<endl;
+        cout<<endl<<"wybierz sposob podania danych"<<endl;
         cout<<"1. wygeneruj losowo dane o zadanej dlugosci"<<endl;
-        cout<<"2. wczytaj dane z pliku"<<endl;
-        cout<<"0. wyjdz do menu-1"<<endl;
+        cout<<"2. wczytaj dane z pliku"<<endl<<endl;
+        cout<<"lub: "<<endl<<endl;
+        cout<<"9. wyjdz do menu-1"<<endl;
+        cout<<"0. wyjdz z programu"<<endl;
         cin>>userChoice;
 
         switch(userChoice) {
@@ -30,16 +33,18 @@ void Menu<T>::chooseArray() {
                 Utilities<T>::printColorText(hConsole, "podaj rozmiar tablicy ", MAGENTA);
                 cin>>arrayLength;
                 generateRandomArray(arrayLength); //global arrayToSort variable changed, so we can work with it
-                chooseAlgorithm();
+                choosePreSort();
                 break;
             case 2:
                 Utilities<T>::printColorText(hConsole, "podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!) ", MAGENTA);
                 cin>>fileName;
-                loadArrayFromFile(fileName); //global arrayToSort variable changed, so we can work with it
-                chooseAlgorithm();
+                loadArrayFromFile(fileName);
+                choosePreSort();
                 break;
-            case 0:
+            case 9:
                 return;
+            case 0:
+                exit(0);
             default:
                 cerr<<"niepoprawny wybor!"<<endl;
         }
@@ -116,7 +121,7 @@ void Menu<T>::loadArrayFromFile(string name) {
 }
 
 template <typename T>
-void Menu<T>::chooseAlgorithm() {
+void Menu<T>::choosePreSort() {
     T originalArray[arrayLength]; //copying original array to delete the pointer
     Utilities<T>::copyArray(arrayToSort, originalArray, arrayLength);
     delete [] arrayToSort;
@@ -126,6 +131,67 @@ void Menu<T>::chooseAlgorithm() {
         Utilities<T>::copyArray(originalArray, arrayCopy, arrayLength);
 
         Utilities<T>::printColorText(hConsole, "--------------------MENU-3--------------------", YELLOW);
+        cout<<"wybierz pre-sort:"<<endl<<endl;
+        cout<<"1. nie zmieniam aktualnej tablicy"<<endl;
+        cout<<"2. posortowana rosnaco"<<endl;
+        cout<<"3. posortowana malejaco"<<endl;
+        cout<<"4. 33% sort"<<endl;
+        cout<<"5. 66% sort"<<endl<<endl;
+        cout<<"lub: "<<endl<<endl;
+        cout<<"6. pokaz aktualna tablice"<<endl;
+        cout<<"9. wyjdz do menu-2"<<endl;
+        cout<<"0. wyjdz z programu"<<endl;
+        cin>>userChoice;
+
+        switch (userChoice) {
+            case 1:
+                chooseAlgorithm(arrayCopy);
+                break;
+            case 2:
+                Utilities<T>::printColorText(hConsole, "wybrales sortowanie rosnoca\n", GREEN);
+
+                std::sort(arrayCopy, arrayCopy + arrayLength);
+
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
+                chooseAlgorithm(arrayCopy);
+                break;
+            case 3:
+                Utilities<T>::printColorText(hConsole, "wybrales sortowanie malejace\n", GREEN);
+
+                std::sort(arrayCopy, arrayCopy + arrayLength, std::greater<int>());
+
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
+                chooseAlgorithm(arrayCopy);
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 6:
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
+                break;
+            case 9:
+                chooseArray();
+                break;
+            case 0:
+                exit(0);
+            default:
+                cerr<<"niepoprawny wybor!"<<endl;
+                break;
+        }
+    }
+    return;
+}
+
+template <typename T>
+void Menu<T>::chooseAlgorithm(T *originalArray) {
+    while(userChoice != 0) {
+        T arrayCopy[arrayLength]; //copying "original" array each time, so I have access to the one generated or loaded
+        Utilities<T>::copyArray(originalArray, arrayCopy, arrayLength);
+
+        Utilities<T>::printColorText(hConsole, "--------------------MENU-4--------------------", YELLOW);
         cout<<"wybierz algorytm:"<<endl<<endl;
         cout<<"1. insertionsort"<<endl;
         cout<<"2. quicksort"<<endl;
@@ -133,7 +199,8 @@ void Menu<T>::chooseAlgorithm() {
         cout<<"4. heapsort"<<endl<<endl;
         cout<<"lub: "<<endl<<endl;
         cout<<"5. pokaz aktualna tablice"<<endl;
-        cout<<"0. wyjdz do menu-2"<<endl;
+        cout<<"9. wyjdz do menu-3"<<endl;
+        cout<<"0. wyjdz z programu"<<endl;
         cin>>userChoice;
 
         switch (userChoice) {
@@ -186,9 +253,11 @@ void Menu<T>::chooseAlgorithm() {
             case 5:
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
                 break;
-            case 0:
-                chooseArray();
+            case 9:
+                choosePreSort();
                 break;
+            case 0:
+                exit(0);
             default:
                 cerr<<"niepoprawny wybor!"<<endl;
                 break;
