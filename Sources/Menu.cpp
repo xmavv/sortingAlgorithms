@@ -17,7 +17,6 @@ Menu<T>::Menu(int variableType) {
 template <typename T>
 void Menu<T>::chooseArray() {
     string fileName;
-    T arrayCopy[arrayLength];
 
     while(true) {
         u.printColorText(hConsole, "--------------------MENU-2--------------------", YELLOW);
@@ -29,14 +28,17 @@ void Menu<T>::chooseArray() {
         cout<<"0. wyjdz z programu"<<endl;
         cin>>userChoice;
 
+        if(userChoice == 1) {
+            Utilities<T>::printColorText(hConsole, "podaj rozmiar tablicy ", MAGENTA);
+            cin>>arrayLength;
+        }
+        T arrayCopy[arrayLength];
+
         switch(userChoice) {
             case 1:
-                Utilities<T>::printColorText(hConsole, "podaj rozmiar tablicy ", MAGENTA);
-                cin>>arrayLength;
                 generateRandomArray(arrayLength); //global arrayToSort variable changed, so we can work with it
 
                 Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
-                delete [] arrayToSort;
 
                 choosePreSort(arrayCopy);
                 break;
@@ -46,7 +48,6 @@ void Menu<T>::chooseArray() {
                 loadArrayFromFile(fileName);
 
                 Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
-                delete [] arrayToSort;
 
                 choosePreSort(arrayCopy);
                 break;
@@ -130,7 +131,7 @@ void Menu<T>::loadArrayFromFile(string name) {
 }
 
 template <typename T>
-void Menu<T>::choosePreSort(T originalArray[]) {
+void Menu<T>::choosePreSort(T *originalArray) {
     while(userChoice != 0) {
         T arrayCopy[arrayLength]; //copying "original" array each time, so I have access to the one generated or loaded
         Utilities<T>::copyArray(originalArray, arrayCopy, arrayLength);
