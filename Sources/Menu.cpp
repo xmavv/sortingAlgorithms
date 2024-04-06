@@ -164,10 +164,20 @@ void Menu<T>::choosePreSort() {
                 chooseAlgorithm(arrayCopy);
                 break;
             case 4:
+                Utilities<T>::printColorText(hConsole, "wybrales sortowanie 33%\n", GREEN);
 
+                presort.preSortPart(arrayCopy, arrayLength, userChoice);
+
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
+                chooseAlgorithm(arrayCopy);
                 break;
             case 5:
+                Utilities<T>::printColorText(hConsole, "wybrales sortowanie 66%\n", GREEN);
 
+                presort.preSortPart(arrayCopy, arrayLength, userChoice);
+
+                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
+                chooseAlgorithm(arrayCopy);
                 break;
             case 6:
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");

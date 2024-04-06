@@ -10,6 +10,7 @@
 #include "Shellsort.h"
 #include "Heapsort.h"
 #include "Utilities.h"
+#include "PreSort.h"
 
 // colors
 #define WHITE   7
@@ -34,6 +35,7 @@ class Menu {
     Quicksort<T> quicksort;
     Shellsort<T> shellsort;
     Heapsort<T> heapsort;
+    PreSort<T> presort;
 
 public:
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
