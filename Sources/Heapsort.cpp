@@ -13,6 +13,22 @@ void Heapsort<T>::setArray(T *arr, int len) {
 }
 
 template <typename T>
+void Heapsort<T>::heapsortAlgorithm() {
+    for (int i = len / 2 - 1; i >= 0; i--)
+        heapify(arr, len, i);
+
+    // One by one extract an element from heap
+    for (int i = len - 1; i >= 0; i--) {
+        // Move current root to end
+        swap(arr[0], arr[i]);
+
+        // call max heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+    return;
+}
+
+template <typename T>
 void Heapsort<T>::heapify(T arr[], int n, int i) {
     int largest = i; // Initialize largest as root Since we are using 0 based indexing
     int l = 2 * i + 1; // left = 2*i + 1
@@ -37,18 +53,14 @@ void Heapsort<T>::heapify(T arr[], int n, int i) {
 
 template <typename T>
 void Heapsort<T>::sort() {
-    for (int i = len / 2 - 1; i >= 0; i--)
-        heapify(arr, len, i);
+    u.startCounter(); //start timer
 
-    // One by one extract an element from heap
-    for (int i = len - 1; i >= 0; i--) {
-        // Move current root to end
-        swap(arr[0], arr[i]);
+    heapsortAlgorithm(); //actual sort
 
-        // call max heapify on the reduced heap
-        heapify(arr, i, 0);
-    }
-    return;
+    double stop = u.getCounter();
+
+    Utilities<T>::printArray(arr, len, "twoja tablica po sortowaniu"); //print sorted
+    Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
 }
 
 template class Heapsort<int>;

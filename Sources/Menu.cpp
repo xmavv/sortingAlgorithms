@@ -219,9 +219,8 @@ void Menu<T>::chooseAlgorithm(T *originalArray) {
 
                 insertionsort.setArray(arrayCopy, arrayLength);
                 algorithm = &insertionsort;
-                startAlgorithm(algorithm);
 
-                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu"); //print sorted
+                startAlgorithm(algorithm);
                 break;
             case 2:
                 Utilities<T>::printColorText(hConsole, "wybrales quicksort\n", GREEN);
@@ -235,8 +234,6 @@ void Menu<T>::chooseAlgorithm(T *originalArray) {
                 quicksort.setArray(arrayCopy, 0, (arrayLength-1), userChoice);
                 algorithm = &quicksort;
                 startAlgorithm(algorithm);
-
-                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 3:
                 Utilities<T>::printColorText(hConsole, "wybrales shellsort\n", GREEN);
@@ -248,8 +245,6 @@ void Menu<T>::chooseAlgorithm(T *originalArray) {
                 shellsort.setArray(arrayCopy, arrayLength, userChoice);
                 algorithm = &shellsort;
                 startAlgorithm(algorithm);
-
-                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 4:
                 Utilities<T>::printColorText(hConsole, "wybrales heapsort\n", GREEN);
@@ -257,8 +252,6 @@ void Menu<T>::chooseAlgorithm(T *originalArray) {
                 heapsort.setArray(arrayCopy, arrayLength);
                 algorithm = &heapsort;
                 startAlgorithm(algorithm);
-
-                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po sortowaniu");
                 break;
             case 5:
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
@@ -278,10 +271,7 @@ void Menu<T>::chooseAlgorithm(T *originalArray) {
 
 template <typename T>
 void Menu<T>::startAlgorithm(Algorithm<T> *a) {
-    u.startCounter(); //start timer
     algorithm -> sort(); // sort
-    double stop = u.getCounter();
-    Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
 }
 
 template class Menu<int>;

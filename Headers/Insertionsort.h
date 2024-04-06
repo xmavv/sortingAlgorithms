@@ -13,7 +13,10 @@ class Insertionsort :public Algorithm<T> {
     T *arr;
     int len;
 public:
+    Utilities<T> u;
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     Insertionsort() {};
+    void insertionsortAlgorithm();
     void setArray(T *arr, int len);
     virtual void sort();
 };

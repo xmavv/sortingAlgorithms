@@ -18,6 +18,26 @@ template <typename T>
 void Shellsort<T>::sort() {
     type == 1 ? shellsortMarcinciur(arr, len) : shellsortN2(arr, len);
 
+    if(type == 1) {
+        u.startCounter(); //start timer
+
+        shellsortMarcinciur(arr, len);
+
+        double stop = u.getCounter();
+
+        Utilities<T>::printArray(arr, len, "twoja tablica po sortowaniu"); //print sorted
+        Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
+    } else {
+        u.startCounter(); //start timer
+
+        shellsortN2(arr, len);
+
+        double stop = u.getCounter();
+
+        Utilities<T>::printArray(arr, len, "twoja tablica po sortowaniu"); //print sorted
+        Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
+    }
+
     return;
 }
 

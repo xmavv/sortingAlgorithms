@@ -13,7 +13,10 @@ class Heapsort :public Algorithm<T> {
     T *arr;
     int len;
 public:
+    Utilities<T> u;
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     Heapsort() {};
+    void heapsortAlgorithm();
     void heapify(T arr[], int n, int i);
     void setArray(T *arr, int len);
     virtual void sort();

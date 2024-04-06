@@ -15,6 +15,8 @@ class Shellsort :public Algorithm<T> {
     int len;
     int type;
 public:
+    Utilities<T> u;
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     Shellsort() {};
     void setArray(T *arr, int len, int type);
     void shellsortMarcinciur(T *arr, int len);
