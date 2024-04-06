@@ -41,9 +41,9 @@ public:
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
     Menu(int variableType);
-    void choosePreSort();
+    void choosePreSort(T originalArray[]);
     void chooseArray();
-    void chooseAlgorithm(T originalArray[]);
+    void chooseAlgorithm(T originalArray[], T notPreSoredArray[]);
     void generateRandomArray(int len);
     void loadArrayFromFile(string name);
     void startAlgorithm(Algorithm<T> *a);

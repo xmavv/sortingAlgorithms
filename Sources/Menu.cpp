@@ -17,6 +17,7 @@ Menu<T>::Menu(int variableType) {
 template <typename T>
 void Menu<T>::chooseArray() {
     string fileName;
+    T arrayCopy[arrayLength];
 
     while(true) {
         u.printColorText(hConsole, "--------------------MENU-2--------------------", YELLOW);
@@ -33,13 +34,21 @@ void Menu<T>::chooseArray() {
                 Utilities<T>::printColorText(hConsole, "podaj rozmiar tablicy ", MAGENTA);
                 cin>>arrayLength;
                 generateRandomArray(arrayLength); //global arrayToSort variable changed, so we can work with it
-                choosePreSort();
+
+                Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
+                delete [] arrayToSort;
+
+                choosePreSort(arrayCopy);
                 break;
             case 2:
                 Utilities<T>::printColorText(hConsole, "podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!) ", MAGENTA);
                 cin>>fileName;
                 loadArrayFromFile(fileName);
-                choosePreSort();
+
+                Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
+                delete [] arrayToSort;
+
+                choosePreSort(arrayCopy);
                 break;
             case 9:
                 return;
@@ -121,11 +130,7 @@ void Menu<T>::loadArrayFromFile(string name) {
 }
 
 template <typename T>
-void Menu<T>::choosePreSort() {
-    T originalArray[arrayLength]; //copying original array to delete the pointer
-    Utilities<T>::copyArray(arrayToSort, originalArray, arrayLength);
-    delete [] arrayToSort;
-
+void Menu<T>::choosePreSort(T originalArray[]) {
     while(userChoice != 0) {
         T arrayCopy[arrayLength]; //copying "original" array each time, so I have access to the one generated or loaded
         Utilities<T>::copyArray(originalArray, arrayCopy, arrayLength);
@@ -145,7 +150,7 @@ void Menu<T>::choosePreSort() {
 
         switch (userChoice) {
             case 1:
-                chooseAlgorithm(arrayCopy);
+                chooseAlgorithm(arrayCopy, originalArray);
                 break;
             case 2:
                 Utilities<T>::printColorText(hConsole, "wybrales sortowanie rosnoca\n", GREEN);
@@ -153,7 +158,7 @@ void Menu<T>::choosePreSort() {
                 std::sort(arrayCopy, arrayCopy + arrayLength);
 
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
-                chooseAlgorithm(arrayCopy);
+                chooseAlgorithm(arrayCopy, originalArray);
                 break;
             case 3:
                 Utilities<T>::printColorText(hConsole, "wybrales sortowanie malejace\n", GREEN);
@@ -161,7 +166,7 @@ void Menu<T>::choosePreSort() {
                 std::sort(arrayCopy, arrayCopy + arrayLength, std::greater<int>());
 
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
-                chooseAlgorithm(arrayCopy);
+                chooseAlgorithm(arrayCopy, originalArray);
                 break;
             case 4:
                 Utilities<T>::printColorText(hConsole, "wybrales sortowanie 33%\n", GREEN);
@@ -169,7 +174,7 @@ void Menu<T>::choosePreSort() {
                 presort.preSortPart(arrayCopy, arrayLength, userChoice);
 
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
-                chooseAlgorithm(arrayCopy);
+                chooseAlgorithm(arrayCopy, originalArray);
                 break;
             case 5:
                 Utilities<T>::printColorText(hConsole, "wybrales sortowanie 66%\n", GREEN);
@@ -177,7 +182,7 @@ void Menu<T>::choosePreSort() {
                 presort.preSortPart(arrayCopy, arrayLength, userChoice);
 
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
-                chooseAlgorithm(arrayCopy);
+                chooseAlgorithm(arrayCopy, originalArray);
                 break;
             case 6:
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
@@ -196,7 +201,7 @@ void Menu<T>::choosePreSort() {
 }
 
 template <typename T>
-void Menu<T>::chooseAlgorithm(T *originalArray) {
+void Menu<T>::chooseAlgorithm(T *originalArray, T *notPreSortedArray) { //having notPreSortedArray no generated in MENU2
     while(userChoice != 0) {
         T arrayCopy[arrayLength]; //copying "original" array each time, so I have access to the one generated or loaded
         Utilities<T>::copyArray(originalArray, arrayCopy, arrayLength);
@@ -257,7 +262,7 @@ void Menu<T>::chooseAlgorithm(T *originalArray) {
                 Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
                 break;
             case 9:
-                choosePreSort();
+                choosePreSort(notPreSortedArray);
                 break;
             case 0:
                 exit(0);
