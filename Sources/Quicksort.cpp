@@ -16,17 +16,16 @@ void Quicksort<T>::setArray(T *arr, int left, int right, int pivotOption) {
 
 template <typename T>
 void Quicksort<T>::sortHelper(T *arr, int left, int right) {
-    if (left >= right)
-        return;
+    if (left >= right) return; //jednoelementowa tablica oznacza ze jest posortowana
 
-    // partitioning the array
-    int p = partition(arr, left, right);
+    //wyznaczamy index elementu rozdzielajacego tablice (elementy po lewej sa mniejsze, po prawej wieksze)
+    int m = partition(arr, left, right);
 
-    // Sorting the left part
-    sortHelper(arr, left, p - 1);
+    //sortujemy lewa strone
+    sortHelper(arr, left, m - 1);
 
-    // Sorting the right part
-    sortHelper(arr, p + 1, right);
+    //sortujemy prawa strone
+    sortHelper(arr, m + 1, right);
 }
 
 template <typename T>
@@ -50,34 +49,22 @@ int Quicksort<T>::partition(T *arr, int left, int right) {
         pivotElement = arr[pivotRandom];
     }
 
-    int count = 0;
-    for (int i = left + 1; i <= right; i++) {
-        if (arr[i] <= pivotElement)
-            count++;
-    }
-
-    // Giving pivot element its correct position
-    int pivotIndex = left + count;
-    swap(arr[pivotIndex], arr[left]);
-
-    // Sorting left and right parts of the pivot element
-    int i = left, j = right;
-
-    while (i < pivotIndex && j > pivotIndex) {
-
-        while (arr[i] <= pivotElement) {
-            i++;
-        }
-
-        while (arr[j] > pivotElement) {
-            j--;
-        }
-
-        if (i < pivotIndex && j > pivotIndex) {
-            swap(arr[i++], arr[j--]);
+    int l=left; int r=right;
+    while(true) {
+        //szukamy elementu wiekszego od pivota z lewej strony
+        while(arr[l]<pivotElement) ++l;
+        //szukamy elementu mniejszego od pivota z prawej strony
+        while(arr[r]>pivotElement) --r;
+        //jezeli nasze "wskazniki" zamienily sie miejscami, zamieniamy te dwa elementy
+        if(l < r) {
+            swap(arr[l], arr[r]);
+            ++l;
+            --r;
+        } else {
+            if(r == right) r--;
+            return r;
         }
     }
-    return pivotIndex;
 }
 
 template class Quicksort<int>;

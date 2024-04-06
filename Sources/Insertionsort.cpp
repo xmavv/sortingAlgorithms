@@ -14,14 +14,17 @@ void Insertionsort<T>::sort() {
     int i, j;
     double key;
 
+    //porownujemy kolejne elementy
     for (i = 1; i < len; i++) {
         key = arr[i];
         j = i - 1;
 
+        //gdy sa w zlej kolejnosci, cofamy sie z tym elementem
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
-            j = j - 1;
+            j--;
         }
+        //na koniec zamieniamy element ze zmienna key
         arr[j + 1] = key;
     }
     return;
