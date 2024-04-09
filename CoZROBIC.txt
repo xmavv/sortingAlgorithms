@@ -1,0 +1,3 @@
+zmienic te algorytmy zeby nie bylo ze zajebalem je
+
+dodaj metode lub klase ktora ci bedzie robic to sortowanie 100razy, dla jednej tablicy te 4 warianty z gory

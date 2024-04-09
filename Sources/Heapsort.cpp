@@ -14,8 +14,7 @@ void Heapsort<T>::setArray(T *arr, int len) {
 
 template <typename T>
 void Heapsort<T>::heapsortAlgorithm() {
-    for (int i = len / 2 - 1; i >= 0; i--)
-        heapify(arr, len, i);
+    for (int i = len / 2 - 1; i >= 0; i--) heapify(arr, len, i);
 
     // One by one extract an element from heap
     for (int i = len - 1; i >= 0; i--) {
