@@ -90,7 +90,14 @@ void Menu<T>::generateRandomArray(int len){
         }
     }
 
-    Utilities<T>::printArray(arrayToSort, len, "twoja tablica");
+    cout<<"czy chcesz zobaczyc wynegerowana tablice?"<<endl;
+    cout<<"1. tak"<<endl;
+    cout<<"2. nie"<<endl;
+    cin>>userChoice;
+
+    if(userChoice == 1) {
+        Utilities<T>::printArray(arrayToSort, len, "twoja tablica");
+    }
 }
 
 template <typename T>
@@ -130,7 +137,14 @@ void Menu<T>::loadArrayFromFile(string name) {
         }
     }
 
-    Utilities<T>::printArray(arrayToSort, arrayLength, "twoja tablica");
+    cout<<"czy chcesz zobaczyc wczytana tablice?"<<endl;
+    cout<<"1. tak"<<endl;
+    cout<<"2. nie"<<endl;
+    cin>>userChoice;
+
+    if(userChoice == 1) {
+        Utilities<T>::printArray(arrayToSort, arrayLength, "twoja tablica");
+    }
 }
 
 template <typename T>

@@ -81,7 +81,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "",
+				"fragment" : "-Wl,--stack,16777216",
 				"role" : "flags"
 			},
 			{
