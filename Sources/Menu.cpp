@@ -31,6 +31,8 @@ void Menu<T>::chooseArray() {
         if(userChoice == 1) {
             Utilities<T>::printColorText(hConsole, "podaj rozmiar tablicy ", MAGENTA);
             cin>>arrayLength;
+        } if(userChoice == 9) {
+            break;
         }
         T arrayCopy[arrayLength];
 
@@ -59,8 +61,9 @@ void Menu<T>::chooseArray() {
                 cerr<<"niepoprawny wybor!"<<endl;
         }
 
-        if(userChoice == 0) return;
+        if(userChoice == 9) return;
     }
+    if(userChoice == 9) return;
 }
 
 template <typename T>
@@ -190,7 +193,7 @@ void Menu<T>::choosePreSort(T *originalArray) {
                 break;
             case 9:
                 chooseArray();
-                break;
+                return;
             case 0:
                 exit(0);
             default:
@@ -218,6 +221,10 @@ void Menu<T>::chooseAlgorithm(T *originalArray, T *notPreSortedArray) { //having
         cout<<"9. wyjdz do menu-3"<<endl;
         cout<<"0. wyjdz z programu"<<endl;
         cin>>userChoice;
+
+        if(userChoice == 9) {
+            break;
+        }
 
         switch (userChoice) {
             case 1:
@@ -264,6 +271,7 @@ void Menu<T>::chooseAlgorithm(T *originalArray, T *notPreSortedArray) { //having
                 break;
             case 9:
                 choosePreSort(notPreSortedArray);
+                return;
                 break;
             case 0:
                 exit(0);

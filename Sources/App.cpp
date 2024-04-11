@@ -1,6 +1,7 @@
 #include "iostream"
 #include "../Headers/App.h"
 #include "../Headers/Menu.h"
+#include "../Headers/Insertionsort.h"
 
 using namespace std;
 
@@ -30,7 +31,8 @@ void App::run() {
         } else if(variableType == 0) {
             exit(0);
         } else {
-            cerr<<"nieprawidlowy wybor!"<<endl;
+            cerr << "nieprawidlowy wybor!" << endl;
         }
     }
+
 }
