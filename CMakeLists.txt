@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.27)
 project(PROJEKT_SORTOWANIE)
 
-MATH(EXPR stack_size "16 * 1024 * 1024") # 16 Mb
+MATH(EXPR stack_size "16 * 1024 * 1024")
 set(CMAKE_EXE_LINKER_FLAGS "-Wl,--stack,${stack_size}")
 
 set(CMAKE_CXX_STANDARD 14)
