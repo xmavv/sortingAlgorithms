@@ -52,3 +52,5 @@ lub int), a drugi poziom zawiera menu przedstawione powyżej.
 
 
 wowczas stworzymy kilka konstruktorow kazdy przypisuje inne typy wartosci dla tablicy
+
+https://politechnikawroclawska-my.sharepoint.com/:w:/g/personal/272996_student_pwr_edu_pl/ETTIaxg9iERIkIa7sO5ieEUBO985cpQ2iv9J7TW_7MY0cQ?e=XQ7FZz
