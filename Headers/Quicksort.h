@@ -27,7 +27,7 @@ public:
     static int partitionRandom(T arr[], int left, int right);
     void setArray(T *arr, int left, int right, int pivotOption);
     void sortHelper(T *arr, int left, int right, function<int(T[], int, int)> callback);
-    virtual void sort();
+    virtual double sort();
 };
 
 

@@ -35,7 +35,7 @@ void Quicksort<T>::sortHelper(T *arr, int left, int right, function<int(T[], int
 }
 
 template <typename T>
-void Quicksort<T>::sort() {
+double Quicksort<T>::sort() {
     if(pivotOption == 1) {
         u.startCounter(); //start timer
 

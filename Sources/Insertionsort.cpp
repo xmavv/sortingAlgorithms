@@ -32,11 +32,12 @@ void Insertionsort<T>::insertionsortAlgorithm() {
 }
 
 template <typename T>
-void Insertionsort<T>::sort() {
+double Insertionsort<T>::sort() {
     u.startCounter(); //start timer
 
     insertionsortAlgorithm(); // actual sort
     double stop = u.getCounter();
+    return stop;
 
     Utilities<T>::printArray(arr, len, "twoja tablica po sortowaniu"); //print sorted
     Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);

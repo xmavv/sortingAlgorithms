@@ -19,7 +19,7 @@ public:
     void heapsortAlgorithm();
     void heapify(T arr[], int n, int i);
     void setArray(T *arr, int len);
-    virtual void sort();
+    virtual double sort();
 };
 
 

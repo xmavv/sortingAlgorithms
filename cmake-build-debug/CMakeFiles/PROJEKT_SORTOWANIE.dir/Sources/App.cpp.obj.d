@@ -135,8 +135,7 @@ CMakeFiles/PROJEKT_SORTOWANIE.dir/Sources/App.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
  C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/App.h \
- C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Menu.h \
- C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Algorithm.h \
+ C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Utilities.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/windows.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/sdkddkver.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/excpt.h \
@@ -382,7 +381,8 @@ CMakeFiles/PROJEKT_SORTOWANIE.dir/Sources/App.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/winsvc.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/mcx.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/imm.h \
- C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Utilities.h \
+ C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Menu.h \
+ C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Algorithm.h \
  C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Insertionsort.h \
  C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Quicksort.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \

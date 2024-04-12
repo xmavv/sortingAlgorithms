@@ -85,7 +85,8 @@ float avg(float *array, int ile){
 
 int main() {
     App app;
-    app.run();
+//    app.run();
+    app.test();
 
     return 0;
 }

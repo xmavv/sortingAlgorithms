@@ -51,7 +51,7 @@ void Heapsort<T>::heapify(T arr[], int n, int i) {
 }
 
 template <typename T>
-void Heapsort<T>::sort() {
+double Heapsort<T>::sort() {
     u.startCounter(); //start timer
 
     heapsortAlgorithm(); //actual sort

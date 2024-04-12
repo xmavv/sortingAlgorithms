@@ -24,7 +24,7 @@ protected:
     Utilities<T> u;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 public:
-    virtual void sort() = 0;
+    virtual double sort() = 0;
 };
 
 #endif //PROJEKT_SORTOWANIE_ALGORITHM_H

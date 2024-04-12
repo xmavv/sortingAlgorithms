@@ -15,7 +15,7 @@ void Shellsort<T>::setArray(T *arr, int len, int type) {
 }
 
 template <typename T>
-void Shellsort<T>::sort() {
+double Shellsort<T>::sort() {
     type == 1 ? shellsortMarcinciur(arr, len) : shellsortN2(arr, len);
 
     if(type == 1) {
@@ -38,7 +38,7 @@ void Shellsort<T>::sort() {
         Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
     }
 
-    return;
+    return 2;
 }
 
 //https://www.softwaretestinghelp.com/shell-sort/

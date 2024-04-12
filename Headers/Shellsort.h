@@ -21,7 +21,7 @@ public:
     void setArray(T *arr, int len, int type);
     void shellsortMarcinciur(T *arr, int len);
     void shellsortN2(T *arr, int len);
-    virtual void sort();
+    virtual double sort();
 };
 
 
