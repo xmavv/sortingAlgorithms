@@ -41,6 +41,7 @@ void Menu<T>::chooseArray() {
                 generateRandomArray(arrayLength); //global arrayToSort variable changed, so we can work with it
 
                 Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
+                delete [] arrayToSort; //deleting dynamically alocating array
 
                 choosePreSort(arrayCopy);
                 break;
@@ -50,6 +51,7 @@ void Menu<T>::chooseArray() {
                 loadArrayFromFile(fileName);
 
                 Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
+                delete [] arrayToSort; //deleting dynamically alocating array
 
                 choosePreSort(arrayCopy);
                 break;
@@ -175,13 +177,13 @@ void Menu<T>::choosePreSort(T *originalArray) {
 
                 std::sort(arrayCopy, arrayCopy + arrayLength);
 
-                cout<<"czy chcesz zobaczyc wynegerowana tablice?"<<endl;
+                cout<<"czy chcesz zobaczyc tablice po pre-sortowaniu?"<<endl;
                 cout<<"1. tak"<<endl;
                 cout<<"2. nie"<<endl;
                 cin>>userChoice;
 
                 if(userChoice == 1) {
-                    Utilities<T>::printArray(arrayToSort, arrayLength, "twoja tablica"); //print pre-sorted
+                    Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica"); //print pre-sorted
                 }
                 chooseAlgorithm(arrayCopy, originalArray);
                 break;
@@ -190,13 +192,13 @@ void Menu<T>::choosePreSort(T *originalArray) {
 
                 std::sort(arrayCopy, arrayCopy + arrayLength, std::greater<int>());
 
-                cout<<"czy chcesz zobaczyc wynegerowana tablice?"<<endl;
+                cout<<"czy chcesz zobaczyc tablice po pre-sortowaniu?"<<endl;
                 cout<<"1. tak"<<endl;
                 cout<<"2. nie"<<endl;
                 cin>>userChoice;
 
                 if(userChoice == 1) {
-                    Utilities<T>::printArray(arrayToSort, arrayLength, "twoja tablica"); //print pre-sorted
+                    Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica"); //print pre-sorted
                 }
                 chooseAlgorithm(arrayCopy, originalArray);
                 break;
@@ -205,13 +207,13 @@ void Menu<T>::choosePreSort(T *originalArray) {
 
                 presort.preSortPart(arrayCopy, arrayLength, userChoice);
 
-                cout<<"czy chcesz zobaczyc wynegerowana tablice?"<<endl;
+                cout<<"czy chcesz zobaczyc tablice po pre-sortowaniu?"<<endl;
                 cout<<"1. tak"<<endl;
                 cout<<"2. nie"<<endl;
                 cin>>userChoice;
 
                 if(userChoice == 1) {
-                    Utilities<T>::printArray(arrayToSort, arrayLength, "twoja tablica"); //print pre-sorted
+                    Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica"); //print pre-sorted
                 }
                 chooseAlgorithm(arrayCopy, originalArray);
                 break;
@@ -220,13 +222,13 @@ void Menu<T>::choosePreSort(T *originalArray) {
 
                 presort.preSortPart(arrayCopy, arrayLength, userChoice);
 
-                cout<<"czy chcesz zobaczyc wynegerowana tablice?"<<endl;
+                cout<<"czy chcesz zobaczyc tablice po pre-sortowaniu?"<<endl;
                 cout<<"1. tak"<<endl;
                 cout<<"2. nie"<<endl;
                 cin>>userChoice;
 
                 if(userChoice == 1) {
-                    Utilities<T>::printArray(arrayToSort, arrayLength, "twoja tablica"); //print pre-sorted
+                    Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica"); //print pre-sorted
                 }
                 chooseAlgorithm(arrayCopy, originalArray);
                 break;

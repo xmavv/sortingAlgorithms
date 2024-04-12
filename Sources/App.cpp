@@ -9,7 +9,7 @@ void App::run() {
     int variableType;
 
     while(true) {
-        cout << "witaj w projekcie sortowanie! poruszając się po menu korzystaj tylko z cyfr!" << endl << endl;
+        cout << "witaj w projekcie sortowanie! poruszajac sie po menu korzystaj tylko z cyfr!" << endl << endl;
         cout << "--------------------MENU-1--------------------" << endl << endl;
         cout << endl << "wybierz typ danych na ktorym chcesz pracowac" << endl;
         cout << "1. int" << endl;

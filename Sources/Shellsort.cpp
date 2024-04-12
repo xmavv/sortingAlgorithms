@@ -25,7 +25,7 @@ void Shellsort<T>::sort() {
 
         double stop = u.getCounter();
 
-        cout<<"czy chcesz zobaczyc wynegerowana tablice?"<<endl;
+        cout<<"czy chcesz zobaczyc posortowana tablice?"<<endl;
         cout<<"1. tak"<<endl;
         cout<<"2. nie"<<endl;
         cin>>userChoice;
@@ -41,7 +41,7 @@ void Shellsort<T>::sort() {
 
         double stop = u.getCounter();
 
-        cout<<"czy chcesz zobaczyc wynegerowana tablice?"<<endl;
+        cout<<"czy chcesz zobaczyc posortowana tablice?"<<endl;
         cout<<"1. tak"<<endl;
         cout<<"2. nie"<<endl;
         cin>>userChoice;
