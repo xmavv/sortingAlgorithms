@@ -12,6 +12,7 @@ template <typename T>
 class Heapsort :public Algorithm<T> {
     T *arr;
     int len;
+    int userChoice;
 public:
     Utilities<T> u;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);

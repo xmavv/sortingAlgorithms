@@ -38,8 +38,15 @@ void Insertionsort<T>::sort() {
     insertionsortAlgorithm(); // actual sort
     double stop = u.getCounter();
 
-    Utilities<T>::printArray(arr, len, "twoja tablica po sortowaniu"); //print sorted
-    Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
+    cout<<"czy chcesz zobaczyc wynegerowana tablice?"<<endl;
+    cout<<"1. tak"<<endl;
+    cout<<"2. nie"<<endl;
+    cin>>userChoice;
+
+    if(userChoice == 1) {
+        Utilities<T>::printArray(arr, len, "twoja tablica"); //print pre-sorted
+    }
+    Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [ms]"), CYAN);
 }
 
 template class Insertionsort<int>;

@@ -16,6 +16,7 @@ class Quicksort :public Algorithm<T> {
     int left;
     int right;
     int pivotOption;
+    int userChoice;
 public:
     Utilities<T> u;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
