@@ -185,36 +185,28 @@ double Menu<T>::choosePreSort(T *originalArray) {
                 return time; //TO MUSI ZWRACAC NIE 2 TYLKO TO CO DOSTANIE Z TAMTEJ FUNKCJI Z GORY
                 break;
 //            case 2:
-//                Utilities<T>::printColorText(hConsole, "wybrales sortowanie rosnoca\n", GREEN);
-//
 //                std::sort(arrayCopy, arrayCopy + arrayLength);
 //
-//                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
-//                chooseAlgorithm(arrayCopy, originalArray);
+//                double time = chooseAlgorithm(arrayCopy, originalArray);
+//                return time;
 //                break;
 //            case 3:
-//                Utilities<T>::printColorText(hConsole, "wybrales sortowanie malejace\n", GREEN);
-//
 //                std::sort(arrayCopy, arrayCopy + arrayLength, std::greater<int>());
 //
-//                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
-//                chooseAlgorithm(arrayCopy, originalArray);
+//                double time = chooseAlgorithm(arrayCopy, originalArray);
+//                return time;
 //                break;
 //            case 4:
-//                Utilities<T>::printColorText(hConsole, "wybrales sortowanie 33%\n", GREEN);
-//
 //                presort.preSortPart(arrayCopy, arrayLength, userChoice);
 //
-//                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
-//                chooseAlgorithm(arrayCopy, originalArray);
+//                double time = chooseAlgorithm(arrayCopy, originalArray);
+//                return time;
 //                break;
 //            case 5:
-//                Utilities<T>::printColorText(hConsole, "wybrales sortowanie 66%\n", GREEN);
-//
 //                presort.preSortPart(arrayCopy, arrayLength, userChoice);
 //
-//                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja tablica po pre-sortowaniu"); //print pre-sorted
-//                chooseAlgorithm(arrayCopy, originalArray);
+//                double time = chooseAlgorithm(arrayCopy, originalArray);
+//                return time;
 //                break;
 //            case 6:
 //                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");
@@ -251,36 +243,33 @@ double Menu<T>::chooseAlgorithm(T *originalArray, T *notPreSortedArray) { //havi
 //        cin>>userChoice;
 
                                                                         //TESTING PURPOSSES
-                                                                        userChoice=1;
+                                                                        userChoice=2;
 
-        if(userChoice == 9) {
-            break;
-        }
+//        if(userChoice == 9) {
+//            break;
+//        }
 
         switch (userChoice) {
-            case 1:
-//                Utilities<T>::printColorText(hConsole, "wybrales insertionsort\n", GREEN);
+//            case 1:
+////                Utilities<T>::printColorText(hConsole, "wybrales insertionsort\n", GREEN);
+//
+//                insertionsort.setArray(arrayCopy, arrayLength);
+//                algorithm = &insertionsort;
+//
+////                startAlgorithm(algorithm);
+//                double time = algorithm -> sort(); // sort
+//                return time;
+//                break;
+            case 2:
 
-                insertionsort.setArray(arrayCopy, arrayLength);
-                algorithm = &insertionsort;
+                userChoice = 4;
 
+                quicksort.setArray(arrayCopy, 0, (arrayLength-1), userChoice);
+                algorithm = &quicksort;
 //                startAlgorithm(algorithm);
-                double time = algorithm -> sort(); // sort
+                double time = algorithm -> sort();
                 return time;
                 break;
-//            case 2:
-//                Utilities<T>::printColorText(hConsole, "wybrales quicksort\n", GREEN);
-//                cout<<"wybierz pivot"<<endl;
-//                cout<<"1. skrajny lewy"<<endl;
-//                cout<<"2. skrajny prawy"<<endl;
-//                cout<<"3. srodkowy"<<endl;
-//                cout<<"4. losowy"<<endl;
-//                cin>>userChoice;
-//
-//                quicksort.setArray(arrayCopy, 0, (arrayLength-1), userChoice);
-//                algorithm = &quicksort;
-//                startAlgorithm(algorithm);
-//                break;
 //            case 3:
 //                Utilities<T>::printColorText(hConsole, "wybrales shellsort\n", GREEN);
 //                cout<<"wybierz typ"<<endl;

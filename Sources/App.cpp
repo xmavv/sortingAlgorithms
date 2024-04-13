@@ -37,23 +37,28 @@ void App::run() {
 }
 
 void App::test() {
-    double sum = 0;
     int length = 10000;
     int iterations = 100;
 
-    for(int i=0; i<iterations; i++) {
-        Menu<int> menu1(1); //1 int, 2 float, 3 char
+    for(int j=0; j<7; j++) {
 
-        int *arrayToSort = menu1.generateRandomArray(length); //genrate random array each time
-        int arrayCopy[length];
+        double sum = 0;
 
-        Utilities<int>::copyArray(arrayToSort, arrayCopy, length); //menus, returning time
-        double time = menu1.choosePreSort(arrayCopy);
+        for(int i=0; i<iterations; i++) {
+            Menu<int> menu1(1); //1 int, 2 float, 3 char
 
-        cout<<time<<endl;
+            int *arrayToSort = menu1.generateRandomArray(length); //genrate random array each time
+            int arrayCopy[length];
 
-        sum+=time;
+            Utilities<int>::copyArray(arrayToSort, arrayCopy, length); //menus, returning time
+            double time = menu1.choosePreSort(arrayCopy);
+
+            sum+=time;
+        }
+
+        cout<<endl<<endl<<endl<<"srednia: [ms] "<<sum/iterations;
+
+        length *= 2;
+//        iterations /= 2;
     }
-
-    cout<<endl<<endl<<endl<<"srednia: [ms] "<<sum/iterations;
 }

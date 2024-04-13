@@ -70,7 +70,9 @@ double Quicksort<T>::sort() {
 
         double stop = u.getCounter();
 
-        Utilities<T>::printArray(arr, right+1, "twoja tablica po sortowaniu"); //print sorted
+        return stop;
+
+//        Utilities<T>::printArray(arr, right+1, "twoja tablica po sortowaniu"); //print sorted
         Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
     }
 }
@@ -166,5 +168,5 @@ int Quicksort<T>::partitionRandom(T arr[], int left, int right) {
 }
 
 template class Quicksort<int>;
-template class Quicksort<float>;
-template class Quicksort<char>;
+//template class Quicksort<float>;
+//template class Quicksort<char>;
