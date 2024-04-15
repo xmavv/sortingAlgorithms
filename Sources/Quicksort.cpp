@@ -168,5 +168,5 @@ int Quicksort<T>::partitionRandom(T arr[], int left, int right) {
 }
 
 template class Quicksort<int>;
-//template class Quicksort<float>;
-//template class Quicksort<char>;
+template class Quicksort<float>;
+template class Quicksort<char>;

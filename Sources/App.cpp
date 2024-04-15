@@ -45,13 +45,13 @@ void App::test() {
         double sum = 0;
 
         for(int i=0; i<iterations; i++) {
-            Menu<int> menu1(1); //1 int, 2 float, 3 char
+            Menu<int> menu1(2); //1 int, 2 float, 3 char
 
             int *arrayToSort = menu1.generateRandomArray(length); //genrate random array each time
             int arrayCopy[length];
 
-            Utilities<int>::copyArray(arrayToSort, arrayCopy, length); //menus, returning time
-            double time = menu1.choosePreSort(arrayCopy);
+            Utilities<int>::copyArray(arrayToSort, arrayCopy, length);
+            double time = menu1.choosePreSort(arrayCopy); //menus, returning time
 
             sum+=time;
         }
@@ -59,6 +59,6 @@ void App::test() {
         cout<<endl<<endl<<endl<<"srednia: [ms] "<<sum/iterations;
 
         length *= 2;
-//        iterations /= 2;
+        iterations /= 2;
     }
 }

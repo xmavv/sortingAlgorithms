@@ -177,13 +177,13 @@ double Menu<T>::choosePreSort(T *originalArray) {
 //        cin>>userChoice;
 
                                                                                 //TESTING PURPOSSES
-                                                                                userChoice=1;
+                                                                                userChoice=4;
 
         switch (userChoice) {
-            case 1:
-                double time = chooseAlgorithm(arrayCopy, originalArray);
-                return time; //TO MUSI ZWRACAC NIE 2 TYLKO TO CO DOSTANIE Z TAMTEJ FUNKCJI Z GORY
-                break;
+//            case 1:
+//                double time = chooseAlgorithm(arrayCopy, originalArray);
+//                return time; //TO MUSI ZWRACAC NIE 2 TYLKO TO CO DOSTANIE Z TAMTEJ FUNKCJI Z GORY
+//                break;
 //            case 2:
 //                std::sort(arrayCopy, arrayCopy + arrayLength);
 //
@@ -196,12 +196,12 @@ double Menu<T>::choosePreSort(T *originalArray) {
 //                double time = chooseAlgorithm(arrayCopy, originalArray);
 //                return time;
 //                break;
-//            case 4:
-//                presort.preSortPart(arrayCopy, arrayLength, userChoice);
-//
-//                double time = chooseAlgorithm(arrayCopy, originalArray);
-//                return time;
-//                break;
+            case 4:
+                presort.preSortPart(arrayCopy, arrayLength, userChoice);
+
+                double time = chooseAlgorithm(arrayCopy, originalArray);
+                return time;
+                break;
 //            case 5:
 //                presort.preSortPart(arrayCopy, arrayLength, userChoice);
 //
@@ -243,50 +243,50 @@ double Menu<T>::chooseAlgorithm(T *originalArray, T *notPreSortedArray) { //havi
 //        cin>>userChoice;
 
                                                                         //TESTING PURPOSSES
-                                                                        userChoice=2;
+                                                                        userChoice=1;
 
 //        if(userChoice == 9) {
 //            break;
 //        }
 
         switch (userChoice) {
-//            case 1:
-////                Utilities<T>::printColorText(hConsole, "wybrales insertionsort\n", GREEN);
-//
-//                insertionsort.setArray(arrayCopy, arrayLength);
-//                algorithm = &insertionsort;
-//
-////                startAlgorithm(algorithm);
-//                double time = algorithm -> sort(); // sort
-//                return time;
-//                break;
-            case 2:
+            case 1:
+//                Utilities<T>::printColorText(hConsole, "wybrales insertionsort\n", GREEN);
 
-                userChoice = 4;
+                insertionsort.setArray(arrayCopy, arrayLength);
+                algorithm = &insertionsort;
 
-                quicksort.setArray(arrayCopy, 0, (arrayLength-1), userChoice);
-                algorithm = &quicksort;
 //                startAlgorithm(algorithm);
-                double time = algorithm -> sort();
+                double time = algorithm -> sort(); // sort
                 return time;
                 break;
+//            case 2:
+//
+//                userChoice = 4;
+//
+//                quicksort.setArray(arrayCopy, 0, (arrayLength-1), userChoice);
+//                algorithm = &quicksort;
+////                startAlgorithm(algorithm);
+//                double time = algorithm -> sort();
+//                return time;
+//                break;
 //            case 3:
-//                Utilities<T>::printColorText(hConsole, "wybrales shellsort\n", GREEN);
-//                cout<<"wybierz typ"<<endl;
-//                cout<<"1. sekwencja marcin ciura"<<endl;
-//                cout<<"2. sekwencja n/2"<<endl;
-//                cin>>userChoice;
+//                userChoice=1;
 //
 //                shellsort.setArray(arrayCopy, arrayLength, userChoice);
 //                algorithm = &shellsort;
-//                startAlgorithm(algorithm);
+////                startAlgorithm(algorithm);
+//                double time = algorithm -> sort();
+//                return time;
 //                break;
 //            case 4:
-//                Utilities<T>::printColorText(hConsole, "wybrales heapsort\n", GREEN);
+////                Utilities<T>::printColorText(hConsole, "wybrales heapsort\n", GREEN);
 //
 //                heapsort.setArray(arrayCopy, arrayLength);
 //                algorithm = &heapsort;
-//                startAlgorithm(algorithm);
+////                startAlgorithm(algorithm);
+//                double time = algorithm -> sort();
+//                return time;
 //                break;
 //            case 5:
 //                Utilities<T>::printArray(arrayCopy, arrayLength, "twoja aktualna tablica");

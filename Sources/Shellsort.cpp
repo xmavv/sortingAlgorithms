@@ -25,6 +25,8 @@ double Shellsort<T>::sort() {
 
         double stop = u.getCounter();
 
+        return stop;
+
         Utilities<T>::printArray(arr, len, "twoja tablica po sortowaniu"); //print sorted
         Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
     } else {
@@ -33,6 +35,8 @@ double Shellsort<T>::sort() {
         shellsortN2(arr, len);
 
         double stop = u.getCounter();
+
+        return stop;
 
         Utilities<T>::printArray(arr, len, "twoja tablica po sortowaniu"); //print sorted
         Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [s]"), CYAN);
