@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 9,
+				"line" : 10,
 				"parent" : 0
 			}
 		]
@@ -81,7 +81,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,--stack,16777216",
+				"fragment" : "-Wl,--stack,16777216 -Wl,--stack,16777216",
 				"role" : "flags"
 			},
 			{
