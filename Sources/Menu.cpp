@@ -128,7 +128,6 @@ void Menu<T>::loadArrayFromFile(string name) {
         }
     } else if(variableType == 2) {
         while(getline(file, line)) {
-            cout<<line<<endl;
             *pointer = stof(line);
             pointer++;
         }
