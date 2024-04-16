@@ -138,6 +138,8 @@ void Menu<T>::loadArrayFromFile(string name) {
         }
     }
 
+    file.close();
+
     cout<<"czy chcesz zobaczyc wczytana tablice?"<<endl;
     cout<<"1. tak"<<endl;
     cout<<"2. nie"<<endl;
