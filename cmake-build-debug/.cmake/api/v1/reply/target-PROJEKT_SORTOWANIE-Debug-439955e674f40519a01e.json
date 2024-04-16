@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 10,
+				"line" : 12,
 				"parent" : 0
 			}
 		]
@@ -38,7 +38,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++14 -fdiagnostics-color=always"
+					"fragment" : " -static-libstdc++ -static-libgcc -g -std=gnu++14 -fdiagnostics-color=always"
 				}
 			],
 			"language" : "CXX",
@@ -77,11 +77,11 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-static-libstdc++ -static-libgcc -g",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,--stack,16777216 -Wl,--stack,16777216",
+				"fragment" : "-static",
 				"role" : "flags"
 			},
 			{

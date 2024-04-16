@@ -385,4 +385,6 @@ CMakeFiles/PROJEKT_SORTOWANIE.dir/Sources/Quicksort.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/winsvc.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/mcx.h \
  C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/imm.h \
- C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Utilities.h
+ C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/Headers/Utilities.h \
+ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
+ C:/Program\ Files/JetBrains/CLion\ 2023.3.4/bin/mingw/x86_64-w64-mingw32/include/math.h

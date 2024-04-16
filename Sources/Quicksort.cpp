@@ -4,6 +4,7 @@
 #include "time.h"
 #include "cstdlib"
 #include "functional"
+#include "cmath"
 
 using namespace std;
 
@@ -101,11 +102,13 @@ void Quicksort<T>::sort() {
         }
         Utilities<T>::printColorText(hConsole, ("\nczas sortowania " + to_string(stop) + " [ms]"), CYAN);
     }
+
+    return;
 }
 
 template <typename T>
 int Quicksort<T>::partitionLeft(T arr[], int left, int right) {
-    int pivotElement = arr[left];
+    T pivotElement = arr[left];
     int l=left; int r=right;
 
     while(true) {
@@ -127,7 +130,7 @@ int Quicksort<T>::partitionLeft(T arr[], int left, int right) {
 
 template <typename T>
 int Quicksort<T>::partitionRight(T arr[], int left, int right) {
-    int pivotElement = arr[right];
+    T pivotElement = arr[right];
     int l=left; int r=right;
 
     while(true) {
@@ -149,7 +152,7 @@ int Quicksort<T>::partitionRight(T arr[], int left, int right) {
 
 template <typename T>
 int Quicksort<T>::partitionCenter(T arr[], int left, int right) {
-    int pivotElement = arr[left + (right-left) /2];
+    T pivotElement = arr[left + (right-left) /2];
     int l=left; int r=right;
 
     while(true) {
@@ -173,7 +176,7 @@ template <typename T>
 int Quicksort<T>::partitionRandom(T arr[], int left, int right) {
     srand(time(0));
     int pivotRandom = left + rand() % (right - left +1);
-    int pivotElement = arr[pivotRandom];
+    T pivotElement = arr[pivotRandom];
     int l=left; int r=right;
 
     while(true) {
