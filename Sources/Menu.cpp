@@ -31,30 +31,49 @@ void Menu<T>::chooseArray() {
         if(userChoice == 1) {
             Utilities<T>::printColorText(hConsole, "podaj rozmiar tablicy ", MAGENTA);
             cin>>arrayLength;
+
+            T arrayCopy[arrayLength];
+
+            generateRandomArray(arrayLength); //global arrayToSort variable changed, so we can work with it
+
+            Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
+            delete [] arrayToSort; //deleting dynamically alocating array
+
+            choosePreSort(arrayCopy);
+        } if(userChoice == 2) {
+            Utilities<T>::printColorText(hConsole, "podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!) ", MAGENTA);
+            cin>>fileName;
+            loadArrayFromFile(fileName);
+
+            T arrayCopy[arrayLength];
+
+            Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
+            delete [] arrayToSort; //deleting dynamically alocating array
+
+            choosePreSort(arrayCopy);
         } if(userChoice == 9) {
             break;
         }
-        T arrayCopy[arrayLength];
 
         switch(userChoice) {
-            case 1:
-                generateRandomArray(arrayLength); //global arrayToSort variable changed, so we can work with it
-
-                Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
-                delete [] arrayToSort; //deleting dynamically alocating array
-
-                choosePreSort(arrayCopy);
-                break;
-            case 2:
-                Utilities<T>::printColorText(hConsole, "podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!) ", MAGENTA);
-                cin>>fileName;
-                loadArrayFromFile(fileName);
-
-                Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
-                delete [] arrayToSort; //deleting dynamically alocating array
-
-                choosePreSort(arrayCopy);
-                break;
+//            case 1:
+//                generateRandomArray(arrayLength); //global arrayToSort variable changed, so we can work with it
+//
+//                Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
+//                delete [] arrayToSort; //deleting dynamically alocating array
+//
+//                choosePreSort(arrayCopy);
+//                break;
+//            case 2:
+//                Utilities<T>::printColorText(hConsole, "podaj nazwe pliku (plik tekstowy musi znajodwac sie w tym samym folderze co plik wykonywalny programu!) ", MAGENTA);
+//                cin>>fileName;
+//                loadArrayFromFile(fileName);
+//
+//                Utilities<T>::copyArray(arrayToSort, arrayCopy, arrayLength);
+//                delete [] arrayToSort; //deleting dynamically alocating array
+//
+//                choosePreSort(arrayCopy);
+//                break;
             case 9:
                 return;
             case 0:
