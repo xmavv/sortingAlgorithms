@@ -12,16 +12,20 @@ void Heapsort<T>::setArray(T *arr, int len) {
     this -> len = len;
 }
 
+//budujemy kopiec maksymalny, zamieniamy korzen z ostatnim elementem, jako juz
+//do posortowanej tablicy, i tak rekurencyjnie dla coraz to mniejszych podproblemow
+
 template <typename T>
 void Heapsort<T>::heapsortAlgorithm() {
+    //budujemy kopiec maksymalny
     for (int i = len / 2 - 1; i >= 0; i--) heapify(arr, len, i);
 
-    // One by one extract an element from heap
+    // wez element z kopca
     for (int i = len - 1; i >= 0; i--) {
-        // Move current root to end
+        // zamien wierzcholek z koncowym elementem
         swap(arr[0], arr[i]);
 
-        // call max heapify on the reduced heap
+        // wywolaj heapify pomijajac ten ostatni element
         heapify(arr, i, 0);
     }
     return;
@@ -29,23 +33,23 @@ void Heapsort<T>::heapsortAlgorithm() {
 
 template <typename T>
 void Heapsort<T>::heapify(T arr[], int n, int i) {
-    int largest = i; // Initialize largest as root Since we are using 0 based indexing
+    int largest = i; //najwiekszy node na podstawie biezacego indeksu
     int l = 2 * i + 1; // left = 2*i + 1
     int r = 2 * i + 2; // right = 2*i + 2
 
-    // If left child is larger than root
+    // gdy lewe dziecko jest wieksze od roota
     if (l < n && arr[l] > arr[largest])
         largest = l;
 
-    // If right child is larger than largest so far
+    // gdy prawe dziecko jest wieksze od najwiekszego
     if (r < n && arr[r] > arr[largest])
         largest = r;
 
-    // If largest is not root
+    // gdy najwiekszy to nie root wywolaj funkcje znowu
+    //chcemy zbudowac kopiec maksymalny
     if (largest != i) {
         swap(arr[i], arr[largest]);
 
-        // Recursively heapify the affected sub-tree
         heapify(arr, n, largest);
     }
 }

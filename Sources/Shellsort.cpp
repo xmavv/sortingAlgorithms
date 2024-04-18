@@ -55,8 +55,6 @@ void Shellsort<T>::sort() {
     return;
 }
 
-//https://www.softwaretestinghelp.com/shell-sort/
-
 template <typename T>
 void Shellsort<T>::shellsortN2(T *arr, int len) {
     //zmniejszamy nasz gap o polowe w kazdej iteracji zaczynajac od polowy dlugosci tablicy
@@ -64,7 +62,7 @@ void Shellsort<T>::shellsortN2(T *arr, int len) {
     {
         for (int i = gap; i < len; i++)
         {
-            int temp = arr[i];
+            T temp = arr[i];
 
             int j;
             for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) arr[j] = arr[j - gap];
@@ -76,6 +74,7 @@ void Shellsort<T>::shellsortN2(T *arr, int len) {
 
 template <typename T>
 void Shellsort<T>::shellsortMarcinciur(T *arr, int len) {
+    // juz wczesniej wyznaczona tablica odlegosci
     int gaps[] = {701, 301, 132, 57, 23, 10, 4, 1};
 
     for (int gap : gaps) {
