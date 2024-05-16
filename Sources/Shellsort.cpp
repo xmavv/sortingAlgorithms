@@ -63,11 +63,15 @@ void Shellsort<T>::shellsortN2(T *arr, int len) {
         for (int i = gap; i < len; i++)
         {
             T temp = arr[i];
+            //sprawdzam zawsze z elementem oddalonym o "jeden gap" w lewo i potem ide znowu i++
+            //czyli [0, 1, 2, 3, 4] sprawdze dla 2 z 0 potem dla 3 z 1 potem dla 4 z 2 czyli ta dwojka zostanie i tak poruszona i tak caly czas
+            int j; //idziemy w lewo i sprawdzamy czy element oddalony od gap jest wiekszy, jezeli tak to go zamieniamy
+            // j >= gap gdyby tak nie bylo wyszlibysmy poza zakres tablicy
+            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) arr[j] = arr[j - gap]; //za kazdym razem musze sprawdzac max w lewo czy nie zamienic elementow ze soba
+                                                                                            //w sensie elementu po prawej ktory jest najmniejszy to musze przejsc
+                                                                                            //przez cale gapy w lewo az zamienie
 
-            int j;
-            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) arr[j] = arr[j - gap];
-
-            arr[j] = temp;
+            arr[j] = temp; //cos jak key w insertionsort
         }
     }
 }

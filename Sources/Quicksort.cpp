@@ -139,11 +139,11 @@ int Quicksort<T>::partitionRight(T arr[], int left, int right) {
         //szukamy elementu mniejszego od pivota z prawej strony
         while(arr[r]>pivotElement) --r;
         //jezeli nasze "wskazniki" zamienily sie miejscami, zamieniamy te dwa elementy
-        if(l < r) {
+        if(l < r) { //czyli znalezlismy element po lewej ktory jest wiekszy od pivota i po prawej ktory jest mniejszy, no to je zamieniamy
             swap(arr[l], arr[r]);
             ++l;
             --r;
-        } else {
+        } else { //jezeli sie zamienily miejscami nasze wskazniki to juz jest dobrze, elementy mniejsze sa po lewej stronie pivota, wieksze po prawej
             if(r == right) r--;
             return r;
         }

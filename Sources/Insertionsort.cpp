@@ -11,7 +11,6 @@ void Insertionsort<T>::setArray(T *arr, int len) {
 
 template <typename T>
 void Insertionsort<T>::insertionsortAlgorithm() {
-
     int i, j;
     double key;
 
