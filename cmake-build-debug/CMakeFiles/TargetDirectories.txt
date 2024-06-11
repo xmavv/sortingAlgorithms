@@ -1,3 +1,0 @@
-C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/cmake-build-debug/CMakeFiles/PROJEKT_SORTOWANIE.dir
-C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/mrmat/OneDrive/Desktop/PROGRAMOWANIE/c/projektAIZO/sortingAlgorithms/cmake-build-debug/CMakeFiles/rebuild_cache.dir
